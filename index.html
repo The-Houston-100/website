@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Houston 100 Investment Group - Strategic Real Estate Investment & Founding Member Opportunities</title>
+    <meta name="description" content="Join The Houston 100 Investment Group - Exclusive founding member opportunities in strategic real estate investment. Professional leadership, principled investing, community impact.">
+    <meta name="keywords" content="Houston investment group, real estate investment, founding members, strategic investing, Houston 100">
+    
+    <style>
+        /* Houston 100 Brand Colors & Reset */
+        :root {
+            --houston-black: #000000;
+            --houston-white: #ffffff;
+            --houston-gray: #747474;
+            --houston-light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--houston-white);
+            background-color: var(--houston-black);
+        }
+        
+        /* Navigation */
+        .nav {
+            background: var(--houston-black);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--houston-gray);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--houston-white);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--houston-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--houston-gray);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--houston-black) 0%, #1a1a1a 50%, var(--houston-black) 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .founding-badge {
+            display: inline-block;
+            background: var(--houston-gray);
+            color: var(--houston-black);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--houston-gray);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--houston-white);
+            color: var(--houston-black);
+        }
+        
+        .btn-primary:hover {
+            background: var(--houston-gray);
+            color: var(--houston-white);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--houston-white);
+            border: 2px solid var(--houston-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--houston-white);
+            color: var(--houston-black);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Leadership Section */
+        .leadership {
+            padding: 80px 0;
+            background: #1a1a1a;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--houston-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .leader-card {
+            background: var(--houston-black);
+            padding: 2.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        
+        .leader-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--houston-gray);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--houston-black);
+        }
+        
+        .leader-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .leader-role {
+            color: var(--houston-gray);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .leader-card p {
+            color: var(--houston-gray);
+            line-height: 1.6;
+        }
+        
+        /* Opportunity Section */
+        .opportunity {
+            padding: 80px 0;
+            background: var(--houston-black);
+        }
+        
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .opportunity-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        
+        .opportunity-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--houston-white);
+        }
+        
+        .opportunity-card p {
+            color: var(--houston-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .opportunity-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .opportunity-card li {
+            color: var(--houston-gray);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .opportunity-card li::before {
+            content: "✓";
+            color: var(--houston-white);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #1a1a1a;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .contact-card {
+            background: var(--houston-black);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card a {
+            color: var(--houston-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .contact-card a:hover {
+            color: var(--houston-gray);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--houston-black);
+            padding: 3rem 0;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+        
+        .footer p {
+            color: var(--houston-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--houston-gray);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--houston-white);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .opportunity-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">The Houston 100</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#membership">Membership</a></li>
+                <li><a href="#dhap">DHAP</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="founding-badge">Founding Member Opportunity</div>
+            <h1>The Houston 100<br>Investment Group</h1>
+            <p>Strategic real estate investment with principled leadership. Join our exclusive founding member cohort and build generational wealth through professional, community-focused investing.</p>
+            <div class="cta-buttons">
+                <a href="mailto:admin@thehouston100group.com?subject=Founding Member Consultation Request" class="btn btn-primary">Schedule Consultation</a>
+                <a href="#leadership" class="btn btn-secondary">Meet the Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership" id="leadership">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experienced Leadership</h2>
+                <p>Our founding team brings decades of combined experience in real estate investment, operations management, and technology innovation.</p>
+            </div>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-avatar">EB</div>
+                    <h3>Effram Barrett</h3>
+                    <div class="leader-role">Chief Executive Officer</div>
+                    <p>Strategic visionary with extensive real estate investment experience. Leads our biblical alignment governance and external partnerships while driving our long-term investment strategy.</p>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-avatar">QW</div>
+                    <h3>Quintin Ward</h3>
+                    <div class="leader-role">Chief Operating Officer</div>
+                    <p>Operational excellence leader focused on financial oversight, risk management, and member services. Ensures our investment processes maintain the highest standards of transparency and accountability.</p>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-avatar">WB</div>
+                    <h3>William Brown</h3>
+                    <div class="leader-role">Chief Technology Officer</div>
+                    <p>Technology strategist responsible for our member portal development, data security, and digital platform innovation. Ensures our systems provide cutting-edge transparency and accessibility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opportunity Section -->
+    <section class="opportunity" id="membership">
+        <div class="container">
+            <div class="section-header">
+                <h2>Founding Member Opportunities</h2>
+                <p>Join an exclusive group of investors committed to strategic real estate investment with community impact.</p>
+            </div>
+            <div class="opportunity-grid">
+                <div class="opportunity-card">
+                    <h3>Strategic Investment Focus</h3>
+                    <p>Our investment approach centers on strategic real estate opportunities with strong fundamentals and community impact potential.</p>
+                    <ul>
+                        <li>Real estate development projects (60-70%)</li>
+                        <li>Market securities allocation (30-40%)</li>
+                        <li>Distressed property rehabilitation</li>
+                        <li>Community-focused investments</li>
+                    </ul>
+                </div>
+                <div class="opportunity-card">
+                    <h3>Member Benefits</h3>
+                    <p>Founding members receive exclusive access to investment opportunities and comprehensive member services.</p>
+                    <ul>
+                        <li>Priority access to investment opportunities</li>
+                        <li>Comprehensive member portal and reporting</li>
+                        <li>Quarterly Growth & Vision sessions</li>
+                        <li>Educational workshops and networking</li>
+                    </ul>
+                </div>
+                <div class="opportunity-card">
+                    <h3>DHAP Program</h3>
+                    <p>Our flagship Distressed Homeowner Assistance Program creates win-win solutions for families and investors.</p>
+                    <ul>
+                        <li>Prevent foreclosures for families in need</li>
+                        <li>Create strategic investment opportunities</li>
+                        <li>Generate positive community impact</li>
+                        <li>Maintain neighborhood stability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ready to Learn More?</h2>
+                <p>Schedule a consultation to discuss founding member opportunities and learn how The Houston 100 can help you achieve your investment goals.</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <a href="mailto:admin@thehouston100group.com">admin@thehouston100group.com</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Phone</h3>
+                    <a href="tel:+17135388220">+1 (713) 538-8220</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Business Entity</h3>
+                    <p>Houston 100 Enterprises LLC</p>
+                </div>
+            </div>
+            <div style="margin-top: 2rem;">
+                <a href="mailto:admin@thehouston100group.com?subject=Founding Member Consultation Request&body=I'm interested in learning more about founding member opportunities with The Houston 100 Investment Group. Please contact me to schedule a consultation." class="btn btn-primary">Schedule Your Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#leadership">Leadership</a>
+                <a href="#membership">Membership</a>
+                <a href="#dhap">DHAP Program</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>&copy; 2025 Houston 100 Enterprises LLC. All rights reserved.</p>
+            <p>The Houston 100 Investment Group - Strategic Real Estate Investment</p>
+        </div>
+    </footer>
+</body>
+</html>
