@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHAP Application - Houston 100 Investment Group</title>
+    <meta name="description" content="Apply for Houston 100's Distressed Homeowner Assistance Program - helping families avoid foreclosure while staying in their homes.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: #000000;
+            color: white;
+            padding: 1rem 0;
+            margin-bottom: 30px;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid white;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: white;
+            color: #000000;
+        }
+
+        .form-header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-header h1 {
+            color: #000000;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: #747474;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 25px;
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            color: #000000;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-number {
+            background: #000000;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .section-number.gray {
+            background: #747474;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        .required {
+            color: #e53e3e;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #000000;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 4px;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .submit-section {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .submit-btn {
+            background: #000000;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+
+        .submit-btn:hover {
+            background: #333333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-note {
+            background: #f7fafc;
+            border-left: 4px solid #000000;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .form-note p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .success-message {
+            background: #c6f6d5;
+            color: #22543d;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .error-message {
+            background: #fed7e2;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .form-header,
+            .form-container {
+                padding: 20px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .form-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">Houston 100 Investment Group</div>
+            <a href="dhap.html" class="back-link">← Back to DHAP</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-header">
+            <h1>Distressed Homeowner Assistance Program</h1>
+            <p>Complete Application Form</p>
+        </div>
+
+        <div class="form-container">
+            <div class="success-message" id="successMessage">
+                <strong>Application Submitted Successfully!</strong><br>
+                Thank you for your application. A DHAP coordinator will contact you within 24-48 hours to discuss your situation and next steps.
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                <strong>Submission Error</strong><br>
+                There was an issue submitting your application. Please try again or contact us directly.
+            </div>
+
+            <form action="https://formspree.io/f/movllrln" method="POST" id="dhapForm">
+                <!-- Hidden Fields for Tracking -->
+                <input type="hidden" name="_subject" value="New DHAP Application Received">
+                <input type="hidden" name="_next" value="https://houston100-website.netlify.app/dhap-form.html?success=true">
+                <input type="hidden" name="application_type" value="DHAP Detailed Form">
+                <input type="hidden" name="submission_date" id="submissionDate">
+                <input type="hidden" name="application_status" value="New Application">
+
+                <!-- Section 1: Basic Information -->
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span class="section-number">1</span>
+                        Contact Information
+                    </h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="first_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="last_name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Property Information -->
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span class="section-number gray">2</span>
+                        Property Details
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label for="propertyAddress">Property Address <span class="required">*</span></label>
+                        <input type="text" id="propertyAddress" name="property_address" required placeholder="Street Address, City, State, ZIP">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="propertyValue">Estimated Property Value</label>
+                            <input type="number" id="propertyValue" name="property_value" placeholder="$0">
+                        </div>
+                        <div class="form-group">
+                            <label for="mortgageBalance">Current Mortgage Balance</label>
+                            <input type="number" id="mortgageBalance" name="mortgage_balance" placeholder="$0">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="monthlyPayment">Monthly Mortgage Payment</label>
+                            <input type="number" id="monthlyPayment" name="monthly_payment" placeholder="$0">
+                        </div>
+                        <div class="form-group">
+                            <label for="behindPayments">Months Behind on Payments</label>
+                            <select id="behindPayments" name="months_behind">
+                                <option value="">Select...</option>
+                                <option value="current">Current</option>
+                                <option value="1">1 month</option>
+                                <option value="2">2 months</option>
+                                <option value="3">3 months</option>
+                                <option value="4">4 months</option>
+                                <option value="5+">5+ months</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Household Information -->
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span class="section-number">3</span>
+                        Household Details
+                    </h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="householdSize">Total Household Members</label>
+                            <select id="householdSize" name="household_size">
+                                <option value="">Select...</option>
+                                <option value="1">1 person</option>
+                                <option value="2">2 people</option>
+                                <option value="3">3 people</option>
+                                <option value="4">4 people</option>
+                                <option value="5">5 people</option>
+                                <option value="6+">6+ people</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="childrenAges">Ages of Children (if any)</label>
+                            <input type="text" id="childrenAges" name="children_ages" placeholder="e.g., 8, 12, 16">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeInHome">How long have you lived in this home?</label>
+                        <select id="timeInHome" name="time_in_home">
+                            <option value="">Select...</option>
+                            <option value="less_than_1">Less than 1 year</option>
+                            <option value="1-3">1-3 years</option>
+                            <option value="4-7">4-7 years</option>
+                            <option value="8-15">8-15 years</option>
+                            <option value="15+">15+ years</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Section 4: Financial Situation -->
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span class="section-number gray">4</span>
+                        Financial Situation
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label for="hardshipType">Type of Financial Hardship <span class="required">*</span></label>
+                        <select id="hardshipType" name="hardship_type" required>
+                            <option value="">Select primary reason...</option>
+                            <option value="job_loss">Job Loss</option>
+                            <option value="reduced_income">Reduced Income/Hours</option>
+                            <option value="medical_emergency">Medical Emergency</option>
+                            <option value="divorce_separation">Divorce/Separation</option>
+                            <option value="death_spouse">Death of Spouse/Partner</option>
+                            <option value="business_failure">Business Failure</option>
+                            <option value="disability">Disability</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentIncome">Current Monthly Household Income</label>
+                        <select id="currentIncome" name="current_income">
+                            <option value="">Select range...</option>
+                            <option value="0-2k">$0 - $2,000</option>
+                            <option value="2k-4k">$2,001 - $4,000</option>
+                            <option value="4k-6k">$4,001 - $6,000</option>
+                            <option value="6k-8k">$6,001 - $8,000</option>
+                            <option value="8k+">$8,001+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foreclosureNotice">Have you received a foreclosure notice?</label>
+                        <select id="foreclosureNotice" name="foreclosure_notice">
+                            <option value="">Select...</option>
+                            <option value="no">No</option>
+                            <option value="yes_recent">Yes, within last 30 days</option>
+                            <option value="yes_older">Yes, more than 30 days ago</option>
+                            <option value="unsure">Not sure</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Section 5: Goals and Preferences -->
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span class="section-number">5</span>
+                        Your Goals
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label for="primaryGoal">What is your primary goal? <span class="required">*</span></label>
+                        <select id="primaryGoal" name="primary_goal" required>
+                            <option value="">Select...</option>
+                            <option value="stay_home">Stay in our home long-term</option>
+                            <option value="buy_back">Buy our home back in the future</option>
+                            <option value="avoid_foreclosure">Avoid foreclosure and get cash</option>
+                            <option value="time_to_move">Get time to find new housing</option>
+                            <option value="not_sure">Not sure - need guidance</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeline">How quickly do you need assistance?</label>
+                        <select id="timeline" name="urgency_timeline">
+                            <option value="">Select...</option>
+                            <option value="immediate">Within 2 weeks (URGENT)</option>
+                            <option value="30_days">Within 30 days</option>
+                            <option value="60_days">Within 60 days</option>
+                            <option value="90_days">Within 90 days</option>
+                            <option value="no_rush">No specific timeline</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Section 6: Additional Information -->
+                <div class="form-section">
+                    <h3 class="section-title">
+                        <span class="section-number gray">6</span>
+                        Additional Details
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label for="additionalInfo">Tell us more about your situation (optional)</label>
+                        <textarea id="additionalInfo" name="additional_info" placeholder="Share any additional details that might help us understand your situation better..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hearAbout">How did you hear about our DHAP program?</label>
+                        <select id="hearAbout" name="referral_source">
+                            <option value="">Select...</option>
+                            <option value="website">Website/Internet search</option>
+                            <option value="friend_family">Friend or family member</option>
+                            <option value="church">Church or community organization</option>
+                            <option value="realtor">Real estate professional</option>
+                            <option value="attorney">Attorney</option>
+                            <option value="social_media">Social media</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Legal Agreements -->
+                <div class="form-section">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="consent" name="information_consent" value="yes" required>
+                        <label for="consent">
+                            <span class="required">*</span> I consent to Houston 100 Investment Group LLC contacting me about the DHAP program and understand that submitting this form does not guarantee acceptance into the program.
+                        </label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="accuracy" name="information_accuracy" value="yes" required>
+                        <label for="accuracy">
+                            <span class="required">*</span> I certify that the information provided is accurate to the best of my knowledge and understand that false information may disqualify my application.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-note">
+                    <p><strong>What Happens Next:</strong> After submitting this form, a DHAP coordinator will review your application and contact you within 24-48 hours to discuss your situation, answer questions, and determine if our program is a good fit for your family's needs.</p>
+                </div>
+
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn">Submit DHAP Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Set submission date automatically
+        document.getElementById('submissionDate').value = new Date().toISOString().split('T')[0];
+
+        // Handle form submission
+        document.getElementById('dhapForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            // Submit form data
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    form.reset();
+                    form.style.display = 'none';
+                    window.scrollTo(0, 0);
+                } else {
+                    document.getElementById('errorMessage').style.display = 'block';
+                    window.scrollTo(0, 0);
+                }
+            }).catch(error => {
+                document.getElementById('errorMessage').style.display = 'block';
+                window.scrollTo(0, 0);
+            }).finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Check for success parameter in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('dhapForm').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
