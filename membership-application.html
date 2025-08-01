@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Application - Houston 100 Investment Group</title>
+    <meta name="description" content="Complete your membership application for Houston 100 Investment Group. Strategic real estate investment with Kingdom-focused principles and community impact.">
+    <meta name="keywords" content="Houston investment group membership, real estate investment, Kingdom principles, Biblical investing, investment community">
+    
+    <style>
+        /* Houston 100 Brand Colors & Reset */
+        :root {
+            --houston-black: #000000;
+            --houston-white: #ffffff;
+            --houston-gray: #747474;
+            --houston-light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--houston-white);
+            background-color: var(--houston-black);
+        }
+        
+        /* Navigation */
+        .nav {
+            background: var(--houston-black);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--houston-gray);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--houston-white);
+            text-decoration: none;
+        }
+        
+        .back-link {
+            color: var(--houston-gray);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid var(--houston-gray);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: var(--houston-gray);
+            color: var(--houston-white);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000000 0%, #747474 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--houston-gray);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .requirements-highlight {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 600px;
+            border-left: 4px solid var(--houston-white);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+        
+        .requirements-highlight h3 {
+            color: var(--houston-white);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .requirements-highlight ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .requirements-highlight li {
+            color: var(--houston-gray);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .requirements-highlight li::before {
+            content: "•";
+            color: var(--houston-white);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Application Form Section */
+        .application-section {
+            background: #1a1a1a;
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--houston-white);
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--houston-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-container {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-top: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .form-section {
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 30px;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: var(--houston-white);
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-number {
+            background: var(--houston-white);
+            color: var(--houston-black);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        .section-number.gray {
+            background: var(--houston-gray);
+            color: var(--houston-white);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--houston-white);
+        }
+        
+        .required {
+            color: #dc3545;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            color: var(--houston-white);
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--houston-white);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 4px;
+        }
+        
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+            color: var(--houston-gray);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .rating-table {
+            margin-bottom: 25px;
+            overflow-x: auto;
+        }
+        
+        .rating-table table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .rating-table th,
+        .rating-table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .rating-table th {
+            background: rgba(255,255,255,0.1);
+            font-weight: bold;
+            color: var(--houston-white);
+        }
+        
+        .rating-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+            color: var(--houston-white);
+        }
+        
+        .rating-table td {
+            color: var(--houston-gray);
+        }
+        
+        .submit-section {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 2px solid rgba(255,255,255,0.1);
+        }
+        
+        .submit-btn {
+            background: var(--houston-white);
+            color: var(--houston-black);
+            padding: 18px 50px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 250px;
+        }
+        
+        .submit-btn:hover {
+            background: var(--houston-gray);
+            color: var(--houston-white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .success-message,
+        .error-message {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            display: none;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--houston-black);
+            padding: 3rem 0;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+        
+        .footer p {
+            color: var(--houston-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--houston-gray);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--houston-white);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .checkbox-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">The Houston 100</a>
+            <a href="membership.html" class="back-link">← Back to Membership</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Membership Application</h1>
+                <p>Complete your application to join Houston 100 Investment Group and become part of our Kingdom-focused investment community.</p>
+                
+                <div class="requirements-highlight">
+                    <h3>Membership Requirements</h3>
+                    <ul>
+                        <li>Initial investment minimum: $5,000</li>
+                        <li>Monthly dues: $100 for operational costs</li>
+                        <li>Application fee: $50 (covers background and reference checks)</li>
+                        <li>Biblical principles alignment</li>
+                        <li>Unanimous approval by current members</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="application-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="success-message" id="successMessage">
+                    <strong>Application Submitted Successfully!</strong><br>
+                    Thank you for your membership application. We will review your submission and contact you within 5-7 business days regarding next steps.
+                </div>
+
+                <div class="error-message" id="errorMessage">
+                    <strong>Submission Error</strong><br>
+                    There was an issue submitting your application. Please try again or contact us directly.
+                </div>
+
+                <form action="https://formspree.io/f/mrblldla" method="POST" id="membershipForm">
+                    <!-- Hidden Fields -->
+                    <input type="hidden" name="_subject" value="New Membership Application - Houston 100">
+                    <input type="hidden" name="_next" value="https://houston100-website.netlify.app/membership-application.html?success=true">
+                    <input type="hidden" name="form_type" value="Membership Application">
+                    <input type="hidden" name="submission_date" id="submissionDate">
+                    <input type="hidden" name="document_id" value="H100_MEM_ProfileForm_20250211_v1">
+
+                    <!-- Section 1: Personal Information -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <span class="section-number">1</span>
+                            Personal Information
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Legal Name <span class="required">*</span></label>
+                                <input type="text" id="fullName" name="full_legal_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="preferredName">Preferred Name (if different)</label>
+                                <input type="text" id="preferredName" name="preferred_name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dateOfBirth">Date of Birth <span class="required">*</span></label>
+                                <input type="date" id="dateOfBirth" name="date_of_birth" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ssn">Social Security Number (or EIN) <span class="required">*</span></label>
+                                <input type="text" id="ssn" name="ssn_ein" required placeholder="XXX-XX-XXXX">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="homeAddress">Home Address <span class="required">*</span></label>
+                            <input type="text" id="homeAddress" name="home_address" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City <span class="required">*</span></label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State <span class="required">*</span></label>
+                                <input type="text" id="state" name="state" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">ZIP Code <span class="required">*</span></label>
+                                <input type="text" id="zip" name="zip_code" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cellPhone">Cell Phone <span class="required">*</span></label>
+                                <input type="tel" id="cellPhone" name="cell_phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="altPhone">Alternate Phone</label>
+                                <input type="tel" id="altPhone" name="alternate_phone">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="primaryEmail">Primary Email <span class="required">*</span></label>
+                                <input type="email" id="primaryEmail" name="primary_email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="altEmail">Alternate Email</label>
+                                <input type="email" id="altEmail" name="alternate_email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMethod">Preferred Contact Method <span class="required">*</span></label>
+                            <select id="contactMethod" name="preferred_contact_method" required>
+                                <option value="">Select...</option>
+                                <option value="email">Email</option>
+                                <option value="phone">Phone</option>
+                                <option value="text">Text</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Professional Information -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <span class="section-number gray">2</span>
+                            Professional Information
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="occupation">Current Occupation <span class="required">*</span></label>
+                                <input type="text" id="occupation" name="current_occupation" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="employer">Employer/Business <span class="required">*</span></label>
+                                <input type="text" id="employer" name="employer_business" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="industry">Industry <span class="required">*</span></label>
+                                <input type="text" id="industry" name="industry" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="certifications">Professional Certifications</label>
+                                <input type="text" id="certifications" name="professional_certifications">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn Profile (optional)</label>
+                            <input type="text" id="linkedin" name="linkedin_profile" placeholder="https://linkedin.com/in/yourprofile">
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Investment Experience -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <span class="section-number">3</span>
+                            Investment Experience
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="investmentYears">Years of Investment Experience <span class="required">*</span></label>
+                                <select id="investmentYears" name="years_investment_experience" required>
+                                    <option value="">Select...</option>
+                                    <option value="0-1">0-1 years</option>
+                                    <option value="2-5">2-5 years</option>
+                                    <option value="6-10">6-10 years</option>
+                                    <option value="11-20">11-20 years</option>
+                                    <option value="20+">20+ years</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="groupExperience">Previous Investment Group Experience <span class="required">*</span></label>
+                                <select id="groupExperience" name="previous_group_experience" required>
+                                    <option value="">Select...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="groupDetails">If yes, please describe your previous investment group experience:</label>
+                            <textarea id="groupDetails" name="group_experience_details" placeholder="Describe your previous investment group involvement..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Please rate your knowledge level in the following investment categories:</label>
+                            <div class="rating-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Investment Category</th>
+                                            <th>None</th>
+                                            <th>Basic</th>
+                                            <th>Intermediate</th>
+                                            <th>Advanced</th>
+                                            <th>Expert</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Real Estate</td>
+                                            <td><input type="radio" name="real_estate_knowledge" value="none"></td>
+                                            <td><input type="radio" name="real_estate_knowledge" value="basic"></td>
+                                            <td><input type="radio" name="real_estate_knowledge" value="intermediate"></td>
+                                            <td><input type="radio" name="real_estate_knowledge" value="advanced"></td>
+                                            <td><input type="radio" name="real_estate_knowledge" value="expert"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Stocks/Equities</td>
+                                            <td><input type="radio" name="stocks_knowledge" value="none"></td>
+                                            <td><input type="radio" name="stocks_knowledge" value="basic"></td>
+                                            <td><input type="radio" name="stocks_knowledge" value="intermediate"></td>
+                                            <td><input type="radio" name="stocks_knowledge" value="advanced"></td>
+                                            <td><input type="radio" name="stocks_knowledge" value="expert"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bonds/Fixed Income</td>
+                                            <td><input type="radio" name="bonds_knowledge" value="none"></td>
+                                            <td><input type="radio" name="bonds_knowledge" value="basic"></td>
+                                            <td><input type="radio" name="bonds_knowledge" value="intermediate"></td>
+                                            <td><input type="radio" name="bonds_knowledge" value="advanced"></td>
+                                            <td><input type="radio" name="bonds_knowledge" value="expert"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Private Equity</td>
+                                            <td><input type="radio" name="private_equity_knowledge" value="none"></td>
+                                            <td><input type="radio" name="private_equity_knowledge" value="basic"></td>
+                                            <td><input type="radio" name="private_equity_knowledge" value="intermediate"></td>
+                                            <td><input type="radio" name="private_equity_knowledge" value="advanced"></td>
+                                            <td><input type="radio" name="private_equity_knowledge" value="expert"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alternative Investments</td>
+                                            <td><input type="radio" name="alternative_knowledge" value="none"></td>
+                                            <td><input type="radio" name="alternative_knowledge" value="basic"></td>
+                                            <td><input type="radio" name="alternative_knowledge" value="intermediate"></td>
+                                            <td><input type="radio" name="alternative_knowledge" value="advanced"></td>
+                                            <td><input type="radio" name="alternative_knowledge" value="expert"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Financial Analysis</td>
+                                            <td><input type="radio" name="financial_analysis_knowledge" value="none"></td>
+                                            <td><input type="radio" name="financial_analysis_knowledge" value="basic"></td>
+                                            <td><input type="radio" name="financial_analysis_knowledge" value="intermediate"></td>
+                                            <td><input type="radio" name="financial_analysis_knowledge" value="advanced"></td>
+                                            <td><input type="radio" name="financial_analysis_knowledge" value="expert"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Investment Preferences -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <span class="section-number gray">4</span>
+                            Investment Preferences
+                        </h3>
+                        
+                        <div class="form-group">
+                            <label for="investmentHorizon">Investment Horizon <span class="required">*</span></label>
+                            <select id="investmentHorizon" name="investment_horizon" required>
+                                <option value="">Select...</option>
+                                <option value="1-3">1-3 years</option>
+                                <option value="4-7">4-7 years</option>
+                                <option value="8-10">8-10 years</option>
+                                <option value="10+">10+ years</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Investment Categories of Interest (select all that apply):</label>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="residential" name="investment_categories" value="residential_real_estate">
+                                    <label for="residential">Residential Real Estate</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="commercial" name="investment_categories" value="commercial_real_estate">
+                                    <label for="commercial">Commercial Real Estate</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="dividend" name="investment_categories" value="dividend_stocks">
+                                    <label for="dividend">Dividend-Paying Stocks</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="growth" name="investment_categories" value="growth_stocks">
+                                    <label for="growth">Growth Stocks</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="privateBusiness" name="investment_categories" value="private_businesses">
+                                    <label for="privateBusiness">Private Businesses</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="fixedIncome" name="investment_categories" value="fixed_income">
+                                    <label for="fixedIncome">Fixed Income</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="communityImpact" name="investment_categories" value="community_impact">
+                                    <label for="communityImpact">Community Impact Investments</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="otherCategories">Other Investment Categories:</label>
+                            <input type="text" id="otherCategories" name="other_investment_categories">
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Skills & Contributions -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <span class="section-number">5</span>
+                            Skills & Contributions
+                        </h3>
+                        
+                        <div class="form-group">
+                            <label>Areas where you can contribute expertise (select all that apply):</label>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="financialAnalysis" name="expertise_areas" value="financial_analysis">
+                                    <label for="financialAnalysis">Financial Analysis</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="realEstateExp" name="expertise_areas" value="real_estate_expertise">
+                                    <label for="realEstateExp">Real Estate Expertise</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="legalKnowledge" name="expertise_areas" value="legal_knowledge">
+                                    <label for="legalKnowledge">Legal Knowledge</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="accounting" name="expertise_areas" value="accounting_tax">
+                                    <label for="accounting">Accounting/Tax Expertise</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="businessOps" name="expertise_areas" value="business_operations">
+                                    <label for="businessOps">Business Operations</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="marketing" name="expertise_areas" value="marketing_communications">
+                                    <label for="marketing">Marketing/Communications</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="technology" name="expertise_areas" value="technology_it">
+                                    <label for="technology">Technology/IT</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="construction" name="expertise_areas" value="construction_development">
+                                    <label for="construction">Construction/Development</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="communityDev" name="expertise_areas" value="community_development">
+                                    <label for="communityDev">Community Development</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="education" name="expertise_areas" value="education_training">
+                                    <label for="education">Education/Training</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="otherExpertise">Other Areas of Expertise:</label>
+                            <input type="text" id="otherExpertise" name="other_expertise_areas">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="serveCommittees">Are you willing to serve on committees when established?</label>
+                                <select id="serveCommittees" name="willing_serve_committees">
+                                    <option value="">Select...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="mentoring">Are you interested in mentoring other members?</label>
+                                <select id="mentoring" name="interested_mentoring">
+                                    <option value="">Select...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="beingMentored">Are you interested in being mentored by experienced members?</label>
+                            <select id="beingMentored" name="interested_being_mentored">
+                                <option value="">Select...</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Section 6: Kingdom Impact Interests -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <span class="section-number gray">6</span>
+                            Kingdom Impact Interests
+                        </h3>
+                        
+                        <div class="form-group">
+                            <label>Areas of community impact that interest you most (select top three):</label>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="affordableHousing" name="community_impact_interests" value="affordable_housing">
+                                    <label for="affordableHousing">Affordable Housing</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="jobCreation" name="community_impact_interests" value="job_creation">
+                                    <label for="jobCreation">Job Creation</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="educationAccess" name="community_impact_interests" value="education_access">
+                                    <label for="educationAccess">Education Access</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="financialLiteracy" name="community_impact_interests" value="financial_literacy">
+                                    <label for="financialLiteracy">Financial Literacy</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="entrepreneurship" name="community_impact_interests" value="entrepreneurship_support">
+                                    <label for="entrepreneurship">Entrepreneurship Support</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="communityDevImpact" name="community_impact_interests" value="community_development">
+                                    <label for="communityDevImpact">Community Development</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="faithBased" name="community_impact_interests" value="faith_based_organizations">
+                                    <label for="faithBased">Faith-Based Organizations</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="familySupport" name="community_impact_interests" value="family_support_services">
+                                    <label for="familySupport">Family Support Services</label>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="environmental" name="community_impact_interests" value="environmental_stewardship">
+                                    <label for="environmental">Environmental Stewardship</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="otherImpact">Other Community Impact Areas:</label>
+                            <input type="text" id="otherImpact" name="other_community_impact">
+                        </div>
+                    </div>
+
+                    <!-- Section 7: Communication Preferences -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <span class="section-number">7</span>
+                            Communication Preferences
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="meetingPrefs">Meeting Preferences</label>
+                                <select id="meetingPrefs" name="meeting_preferences">
+                                    <option value="">Select...</option>
+                                    <option value="in_person">In-person preferred</option>
+                                    <option value="virtual">Virtual preferred</option>
+                                    <option value="no_preference">No preference</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="newsletterPrefs">Newsletter and Updates</label>
+                                <select id="newsletterPrefs" name="newsletter_preferences">
+                                    <option value="">Select...</option>
+                                    <option value="email">Email</option>
+                                    <option value="physical_mail">Physical mail</option>
+                                    <option value="both">Both</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="learningFormat">Preferred Learning Format</label>
+                            <select id="learningFormat" name="preferred_learning_format">
+                                <option value="">Select...</option>
+                                <option value="written_materials">Written materials</option>
+                                <option value="video_content">Video content</option>
+                                <option value="live_presentations">Live presentations</option>
+                                <option value="interactive_workshops">Interactive workshops</option>
+                                <option value="one_on_one_mentoring">One-on-one mentoring</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Section 8: Additional Information -->
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <span class="section-number gray">8</span>
+                            Additional Information
+                        </h3>
+                        
+                        <div class="form-group">
+                            <label for="additionalInfo">Please share any additional information that would help us better understand your interests, goals, or how you can contribute to Houston 100 Investment Group:</label>
+                            <textarea id="additionalInfo" name="additional_information" placeholder="Share your investment goals, experience, or any other relevant information..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Acknowledgment -->
+                    <div class="form-section">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="acknowledgment" name="information_acknowledgment" value="yes" required>
+                            <label for="acknowledgment">
+                                <span class="required">*</span> I confirm that all information provided in this Member Profile Form is accurate and complete to the best of my knowledge. I understand this information will be used to facilitate my participation in Houston 100 Investment Group LLC and will be maintained in accordance with the group's privacy policies.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="submit-section">
+                        <button type="submit" class="submit-btn">Submit Membership Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="leadership.html">Leadership</a>
+                <a href="investment-approach.html">Investment Approach</a>
+                <a href="mission.html">Mission</a>
+                <a href="membership.html">Membership</a>
+                <a href="dhap.html">DHAP</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <p>&copy; 2025 Houston 100 Investment Group LLC. All rights reserved.</p>
+            <p>Building Kingdom Wealth Through Strategic Investment</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set submission date automatically
+        document.getElementById('submissionDate').value = new Date().toISOString().split('T')[0];
+
+        // Handle form submission
+        document.getElementById('membershipForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'Submitting Application...';
+            submitBtn.disabled = true;
+            
+            // Submit form data
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    form.reset();
+                    form.style.display = 'none';
+                    window.scrollTo(0, 0);
+                } else {
+                    document.getElementById('errorMessage').style.display = 'block';
+                    window.scrollTo(0, 0);
+                }
+            }).catch(error => {
+                document.getElementById('errorMessage').style.display = 'block';
+                window.scrollTo(0, 0);
+            }).finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Check for success parameter in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('membershipForm').style.display = 'none';
+        }
+
+        // Limit community impact selections to 3
+        const communityCheckboxes = document.querySelectorAll('input[name="community_impact_interests"]');
+        communityCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const checkedBoxes = document.querySelectorAll('input[name="community_impact_interests"]:checked');
+                if (checkedBoxes.length >= 3) {
+                    communityCheckboxes.forEach(cb => {
+                        if (!cb.checked) cb.disabled = true;
+                    });
+                } else {
+                    communityCheckboxes.forEach(cb => {
+                        cb.disabled = false;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
