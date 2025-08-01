@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Houston 100 Investment Group - Strategic Real Estate Investment & Founding Member Opportunities</title>
-    <meta name="description" content="Join The Houston 100 Investment Group - Exclusive founding member opportunities in strategic real estate investment. Professional leadership, principled investing, community impact.">
-    <meta name="keywords" content="Houston investment group, real estate investment, founding members, strategic investing, Houston 100">
+    <title>The Houston 100 Investment Group - Strategic Real Estate Investment</title>
+    <meta name="description" content="The Houston 100 Investment Group - Strategic real estate investment with principled leadership. Join our exclusive member community and build generational wealth through professional, Kingdom-focused investing.">
+    <meta name="keywords" content="Houston 100, real estate investment, strategic investing, investment group, generational wealth, Kingdom principles">
     
     <style>
         /* Houston 100 Brand Colors & Reset */
@@ -27,6 +27,7 @@
             line-height: 1.6;
             color: var(--houston-white);
             background-color: var(--houston-black);
+            overflow-x: hidden;
         }
         
         /* Navigation */
@@ -37,7 +38,8 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid var(--houston-gray);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
         }
         
         .nav-container {
@@ -54,6 +56,11 @@
             font-weight: 700;
             color: var(--houston-white);
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .logo:hover {
+            color: var(--houston-gray);
         }
         
         .nav-links {
@@ -67,76 +74,172 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
         }
         
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--houston-gray);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--houston-white);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--houston-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--houston-black) 0%, #1a1a1a 50%, var(--houston-black) 100%);
-            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #000000 0%, #747474 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
         
-        .founding-badge {
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+        
+        .badge {
             display: inline-block;
-            background: var(--houston-gray);
-            color: var(--houston-black);
-            padding: 0.5rem 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
             border-radius: 25px;
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 2rem;
+            color: var(--houston-white);
+            letter-spacing: 0.5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            line-height: 1.1;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--houston-gray);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
+            margin-bottom: 3rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
         }
         
-        .cta-buttons {
+        .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
         }
         
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Buttons */
         .btn {
-            padding: 1rem 2rem;
+            padding: 1.25rem 2.5rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 1.1rem;
             font-weight: 600;
             text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
         }
         
         .btn-primary {
             background: var(--houston-white);
             color: var(--houston-black);
+            box-shadow: 0 4px 15px rgba(255,255,255,0.1);
         }
         
         .btn-primary:hover {
             background: var(--houston-gray);
             color: var(--houston-white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.2);
         }
         
         .btn-secondary {
@@ -148,19 +251,15 @@
         .btn-secondary:hover {
             background: var(--houston-white);
             color: var(--houston-black);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.2);
         }
         
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        /* Leadership Section */
-        .leadership {
-            padding: 80px 0;
+        /* Overview Section */
+        .overview {
+            padding: 100px 0;
             background: #1a1a1a;
+            position: relative;
         }
         
         .section-header {
@@ -172,6 +271,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            color: var(--houston-white);
         }
         
         .section-header p {
@@ -181,281 +281,252 @@
             margin: 0 auto;
         }
         
-        .leadership-grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
         
-        .leader-card {
-            background: var(--houston-black);
-            padding: 2.5rem;
-            border-radius: 10px;
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
             text-align: center;
-            border: 1px solid #333;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         
-        .leader-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: var(--houston-gray);
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--houston-black);
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: left 0.5s;
         }
         
-        .leader-card h3 {
+        .feature-card:hover::before {
+            left: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .feature-card h3 {
+            color: var(--houston-white);
+            margin-bottom: 1rem;
             font-size: 1.5rem;
-            margin-bottom: 0.5rem;
         }
         
-        .leader-role {
+        .feature-card p {
+            color: var(--houston-gray);
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 100px 0;
+            background: var(--houston-black);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--houston-white);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .stat-label {
             color: var(--houston-gray);
             font-size: 1.1rem;
-            margin-bottom: 1rem;
+            font-weight: 500;
         }
         
-        .leader-card p {
-            color: var(--houston-gray);
-            line-height: 1.6;
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #000000 0%, #747474 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        /* Opportunity Section */
-        .opportunity {
-            padding: 80px 0;
-            background: var(--houston-black);
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
         }
         
-        .opportunity-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .opportunity-card {
-            background: #1a1a1a;
-            padding: 2rem;
-            border-radius: 10px;
-            border: 1px solid #333;
+        .cta h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--houston-white);
         }
         
-        .opportunity-card h3 {
+        .cta p {
             font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--houston-white);
-        }
-        
-        .opportunity-card p {
             color: var(--houston-gray);
-            margin-bottom: 1.5rem;
+            margin-bottom: 3rem;
         }
         
-        .opportunity-card ul {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-        
-        .opportunity-card li {
-            color: var(--houston-gray);
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .opportunity-card li::before {
-            content: "✓";
-            color: var(--houston-white);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        /* DHAP Program Section */
-        .dhap-program {
-            padding: 80px 0;
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
             background: #1a1a1a;
-            border-top: 1px solid #333;
-        }
-        
-        .dhap-container {
-            background: var(--houston-black);
-            padding: 3rem;
-            border-radius: 10px;
-            border: 1px solid #555;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        
-        .dhap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-        
-        .dhap-column h3 {
-            color: var(--houston-white) !important;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
-        
-        .dhap-column p {
-            color: var(--houston-white) !important;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        
-        .dhap-column ul {
-            list-style: none;
-            text-align: left;
-        }
-        
-        .dhap-column li {
-            color: var(--houston-white) !important;
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-            position: relative;
-            font-size: 1rem;
-        }
-        
-        .dhap-column li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--houston-white);
-            font-weight: bold;
-        }
-        
-        .dhap-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        
-        /* Contact Form Section */
-        .contact {
-            padding: 80px 0;
-            background: #1a1a1a;
-            text-align: center;
         }
         
         .contact-form-container {
             max-width: 600px;
             margin: 0 auto;
-            background: var(--houston-black);
+            background: rgba(255,255,255,0.05);
             padding: 3rem;
-            border-radius: 10px;
-            border: 1px solid #333;
-            margin-top: 3rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
+        .contact-form {
+            width: 100%;
         }
         
         .form-row {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
         
-        .form-row .form-group {
+        .form-group {
             flex: 1;
+            margin-bottom: 1.5rem;
         }
         
-        .contact-form label {
+        .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--houston-white);
             font-weight: 600;
-        }
-        
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form select,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #333;
-            border-radius: 5px;
-            background: #1a1a1a;
             color: var(--houston-white);
             font-size: 1rem;
-            transition: border-color 0.3s ease;
         }
         
-        .contact-form input:focus,
-        .contact-form select:focus,
-        .contact-form textarea:focus {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            color: var(--houston-white);
+        }
+        
+        .form-group select {
+            background: rgba(0,0,0,0.8);
+            color: var(--houston-white);
+        }
+        
+        .form-group select option {
+            background: var(--houston-black);
+            color: var(--houston-white);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--houston-white);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.1);
         }
         
-        .contact-form textarea {
+        .form-group textarea {
             resize: vertical;
             min-height: 120px;
         }
         
-        .contact-form .required {
-            color: #ff6b6b;
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
         }
         
-        .contact-submit-btn {
-            background: var(--houston-white);
-            color: var(--houston-black);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 4px;
+        }
+        
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+            color: var(--houston-gray);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        .submit-btn {
             width: 100%;
             margin-top: 1rem;
         }
         
-        .contact-submit-btn:hover {
-            background: var(--houston-gray);
-            color: var(--houston-white);
-        }
-        
         .success-message,
         .error-message {
-            padding: 1rem;
-            border-radius: 5px;
-            margin: 1rem 0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
             text-align: center;
-            display: none;
+            font-weight: 600;
         }
         
         .success-message {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
         }
         
         .error-message {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
         }
         
         /* Footer */
         .footer {
             background: var(--houston-black);
             padding: 3rem 0;
-            border-top: 1px solid #333;
+            border-top: 1px solid rgba(255,255,255,0.1);
             text-align: center;
         }
         
@@ -475,6 +546,7 @@
         .footer-links a {
             color: var(--houston-gray);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
         
         .footer-links a:hover {
@@ -487,6 +559,10 @@
                 display: none;
             }
             
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -495,36 +571,14 @@
                 font-size: 1.1rem;
             }
             
-            .cta-buttons {
+            .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .leadership-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .opportunity-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .dhap-grid {
+            .features-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-            }
-            
-            .dhap-container {
-                padding: 2rem;
-            }
-            
-            .dhap-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .contact-form-container {
-                padding: 2rem;
-                margin: 2rem 0;
             }
             
             .form-row {
@@ -532,9 +586,27 @@
                 gap: 0;
             }
             
+            .contact-form-container {
+                padding: 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+            
             .footer-links {
                 flex-direction: column;
                 gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .contact-form-container {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -543,203 +615,155 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="/" class="logo">The Houston 100</a>
+            <a href="index.html" class="logo">The Houston 100</a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#leadership">Leadership</a></li>
-                <li><a href="#membership">Membership</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="investment-approach.html">Investment Approach</a></li>
+                <li><a href="mission.html">Mission</a></li>
+                <li><a href="membership.html">Membership</a></li>
                 <li><a href="dhap.html">DHAP</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Get In Touch</a></li>
             </ul>
+            <button class="mobile-menu-toggle">☰</button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="founding-badge">Member Opportunity</div>
-            <h1>The Houston 100<br>Investment Group</h1>
-            <p>Strategic real estate investment with principled leadership. Join our exclusive member community and build generational wealth through professional, community-focused investing.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                <a href="#leadership" class="btn btn-secondary">Meet the Team</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Leadership Section -->
-    <section class="leadership" id="leadership">
-        <div class="container">
-            <div class="section-header">
-                <h2>Experienced Leadership</h2>
-                <p>Our founding team brings decades of combined experience in real estate investment and operations management.</p>
-            </div>
-            <div class="leadership-grid">
-                <div class="leader-card">
-                    <div class="leader-avatar">EB</div>
-                    <h3>Effram Barrett</h3>
-                    <div class="leader-role">Chief Executive Officer</div>
-                    <p>Strategic visionary with extensive real estate investment experience. Leads our biblical alignment governance and external partnerships while driving our long-term investment strategy.</p>
-                </div>
-                <div class="leader-card">
-                    <div class="leader-avatar">QW</div>
-                    <h3>Quintin Ward</h3>
-                    <div class="leader-role">Chief Operating Officer</div>
-                    <p>Operational excellence leader focused on financial oversight, risk management, and member services. Ensures our investment processes maintain the highest standards of transparency and accountability.</p>
+            <div class="hero-content">
+                <div class="badge">Member Opportunity</div>
+                <h1>The Houston 100<br>Investment Group</h1>
+                <p>Strategic real estate investment with principled leadership. Join our exclusive member community and build generational wealth through professional, Kingdom-focused investing.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="leadership.html" class="btn btn-secondary">Leadership</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Opportunity Section -->
-    <section class="opportunity" id="membership">
+    <!-- Overview Section -->
+    <section class="overview">
         <div class="container">
             <div class="section-header">
-                <h2>Member Opportunities</h2>
-                <p>Join an exclusive group of investors committed to strategic real estate investment with community impact.</p>
-            </div>
-            <div class="opportunity-grid">
-                <div class="opportunity-card">
-                    <h3>Strategic Investment Focus</h3>
-                    <p>Our investment approach centers on strategic real estate opportunities with strong fundamentals and community impact potential.</p>
-                    <ul>
-                        <li>Real estate development projects</li>
-                        <li>Market securities allocation</li>
-                        <li>Distressed property rehabilitation</li>
-                        <li>Community-focused investments</li>
-                    </ul>
-                </div>
-                <div class="opportunity-card">
-                    <h3>Member Benefits</h3>
-                    <p>Members receive exclusive access to investment opportunities and comprehensive member services.</p>
-                    <ul>
-                        <li>Priority access to investment opportunities</li>
-                        <li>Increased purchasing power through collective investing</li>
-                        <li>Comprehensive member portal and reporting</li>
-                        <li>Quarterly Growth & Vision sessions</li>
-                        <li>Educational workshops and networking</li>
-                    </ul>
-                </div>
-                <div class="opportunity-card">
-                    <h3>DHAP Program</h3>
-                    <p>Our flagship Distressed Homeowner Assistance Program creates win-win solutions for families and investors.</p>
-                    <ul>
-                        <li>Prevent foreclosures for families in need</li>
-                        <li>Create strategic investment opportunities</li>
-                        <li>Generate positive community impact</li>
-                        <li>Maintain neighborhood stability</li>
-                        <li><a href="dhap.html" style="color: var(--houston-white); text-decoration: underline;">Learn more about DHAP →</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DHAP Program Section -->
-    <section class="dhap-program" id="dhap">
-        <div class="container">
-            <div class="section-header">
-                <h2 style="color: var(--houston-white) !important;">Distressed Homeowner Assistance Program</h2>
-                <p style="color: var(--houston-white) !important; opacity: 0.9;">Our flagship DHAP program helps families avoid foreclosure while creating strategic investment opportunities for our members.</p>
+                <h2>Building Kingdom Wealth Through Strategic Investment</h2>
+                <p>Houston 100 Investment Group combines professional investment management with Kingdom-focused principles to create sustainable returns and meaningful community impact.</p>
             </div>
             
-            <div class="dhap-container">
-                <div class="dhap-grid">
-                    <div class="dhap-column">
-                        <h3>For Families</h3>
-                        <p>Stay in your home during financial hardship with our purchase-with-buyback option.</p>
-                        <ul>
-                            <li>Avoid foreclosure and credit damage</li>
-                            <li>Stay in your community and schools</li>
-                            <li>Path back to homeownership</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="dhap-column">
-                        <h3>For Investors</h3>
-                        <p>Strategic real estate investments with positive community impact and stable returns.</p>
-                        <ul>
-                            <li>Target 10-15% annual returns</li>
-                            <li>Stable rental income stream</li>
-                            <li>Meaningful community impact</li>
-                        </ul>
-                    </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Strategic Real Estate</h3>
+                    <p>Focus on carefully selected real estate opportunities with strong fundamentals and growth potential. Our investment approach emphasizes long-term value creation and sustainable returns.</p>
                 </div>
                 
-                <div class="dhap-buttons">
-                    <a href="dhap.html" class="btn btn-primary">Learn About DHAP</a>
-                    <a href="dhap-form.html" class="btn btn-secondary">Apply for Assistance</a>
+                <div class="feature-card">
+                    <h3>Professional Management</h3>
+                    <p>Experienced leadership team handles due diligence, property management, and investment oversight. Members benefit from professional expertise while focusing on their primary careers.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Kingdom-Focused Community</h3>
+                    <p>Connect with like-minded investors who share your values and commitment to Biblical principles in business and investment decisions. Build relationships beyond returns.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Community Impact</h3>
+                    <p>Investments that generate returns while creating positive community impact. Our DHAP program helps families avoid foreclosure while creating investment opportunities.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Transparent Operations</h3>
+                    <p>Complete transparency in all investment decisions, performance reporting, and member communications. Regular updates and open governance ensure accountability.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Generational Wealth</h3>
+                    <p>Build lasting wealth through strategic investment decisions and principled leadership. Create financial legacy while maintaining Biblical stewardship values.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <!-- Get In Touch Section -->
+    <section class="contact-section">
         <div class="container">
             <div class="section-header">
                 <h2>Get In Touch</h2>
-                <p>Interested in member opportunities? Have questions about our investment approach? We'd love to hear from you.</p>
+                <p>Ready to learn more about Houston 100 Investment Group? Send us a message and we'll get back to you soon.</p>
             </div>
             
             <div class="contact-form-container">
-                <div class="success-message" id="contactSuccessMessage">
+                <div class="success-message" id="successMessage" style="display: none;">
                     <strong>Message Sent Successfully!</strong><br>
-                    Thank you for your inquiry. We'll get back to you within 24 hours.
+                    Thank you for your message. We'll get back to you within 24-48 hours.
                 </div>
 
-                <div class="error-message" id="contactErrorMessage">
-                    <strong>Submission Error</strong><br>
+                <div class="error-message" id="errorMessage" style="display: none;">
+                    <strong>Message Failed to Send</strong><br>
                     Please try again or contact us directly.
                 </div>
 
-                <form action="https://formspree.io/f/xqallnwk" method="POST" class="contact-form" id="contactForm">
-                    <!-- Hidden Fields -->
-                    <input type="hidden" name="_subject" value="New Contact Form Inquiry - Houston 100">
-                    <input type="hidden" name="_next" value="https://houston100-website.netlify.app/?contact=success">
-                    <input type="hidden" name="form_type" value="General Contact">
-                    <input type="hidden" name="submission_date" id="contactSubmissionDate">
-
+                <form action="https://formspree.io/f/xqallnwk" method="POST" id="contactForm" class="contact-form">
+                    <input type="hidden" name="_subject" value="New Contact Form Submission - Houston 100">
+                    <input type="hidden" name="form_type" value="Contact Form">
+                    <input type="hidden" name="submission_date" id="submissionDate">
+                    
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="contactFirstName">First Name <span class="required">*</span></label>
-                            <input type="text" id="contactFirstName" name="first_name" required>
+                            <label for="name">Your Name <span style="color: #ef4444;">*</span></label>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="contactLastName">Last Name <span class="required">*</span></label>
-                            <input type="text" id="contactLastName" name="last_name" required>
+                            <label for="email">Your Email <span style="color: #ef4444;">*</span></label>
+                            <input type="email" id="email" name="email" required>
                         </div>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="contactEmail">Email Address <span class="required">*</span></label>
-                        <input type="email" id="contactEmail" name="email" required>
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="contactSubject">Subject <span class="required">*</span></label>
-                        <select id="contactSubject" name="inquiry_subject" required>
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject">
                             <option value="">Select a topic...</option>
-                            <option value="member_opportunities">Member Opportunities</option>
-                            <option value="investment_strategy">Investment Strategy Questions</option>
-                            <option value="dhap_program">DHAP Program Information</option>
-                            <option value="partnership">Partnership Opportunities</option>
-                            <option value="general">General Inquiry</option>
+                            <option value="membership_inquiry">Membership Inquiry</option>
+                            <option value="investment_information">Investment Information</option>
+                            <option value="dhap_program">DHAP Program</option>
+                            <option value="general_question">General Question</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="contactMessage">Message <span class="required">*</span></label>
-                        <textarea id="contactMessage" name="message" required placeholder="Tell us about your interest in Houston 100 Investment Group..."></textarea>
+                        <label for="message">Your Message <span style="color: #ef4444;">*</span></label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Tell us about your interest in Houston 100 Investment Group..."></textarea>
                     </div>
-
-                    <button type="submit" class="contact-submit-btn">Send Message</button>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" value="yes" required>
+                        <label for="consent">I agree to be contacted by Houston 100 Investment Group regarding my inquiry <span style="color: #ef4444;">*</span></label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
                 </form>
             </div>
-            
-            <div style="margin-top: 2rem; color: var(--houston-gray);">
-                <p><strong>Houston 100 Enterprises LLC</strong><br>Houston, Texas</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Build Kingdom Wealth?</h2>
+                <p>Join Houston 100 Investment Group and become part of a community committed to Biblical stewardship, financial excellence, and meaningful community impact.</p>
+                <div class="hero-buttons">
+                    <a href="membership.html" class="btn btn-primary">Explore Membership</a>
+                </div>
             </div>
         </div>
     </section>
@@ -748,32 +772,40 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-links">
-                <a href="#about">About</a>
-                <a href="#leadership">Leadership</a>
-                <a href="#membership">Membership</a>
-                <a href="dhap.html">DHAP Program</a>
-                <a href="#contact">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="leadership.html">Leadership</a>
+                <a href="investment-approach.html">Investment Approach</a>
+                <a href="mission.html">Mission</a>
+                <a href="membership.html">Membership</a>
+                <a href="dhap.html">DHAP</a>
             </div>
-            <p>&copy; 2025 Houston 100 Enterprises LLC. All rights reserved.</p>
-            <p>The Houston 100 Investment Group - Strategic Real Estate Investment</p>
+            <div class="footer-links" style="margin-top: 1rem;">
+                <a href="terms-conditions.html">Terms & Conditions</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+            </div>
+            <p>&copy; 2025 Houston 100 Investment Group LLC. All rights reserved.</p>
+            <p>Building Kingdom Wealth Through Strategic Investment</p>
         </div>
     </footer>
 
     <script>
-        // Set submission date
-        document.getElementById('contactSubmissionDate').value = new Date().toISOString().split('T')[0];
+        // Set submission date automatically
+        document.getElementById('submissionDate').value = new Date().toISOString().split('T')[0];
 
-        // Handle contact form submission
+        // Handle form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const form = this;
-            const submitBtn = form.querySelector('.contact-submit-btn');
+            const submitBtn = form.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
             
-            submitBtn.textContent = 'Sending...';
+            // Show loading state
+            submitBtn.textContent = 'Sending Message...';
             submitBtn.disabled = true;
             
+            // Submit form data
             fetch(form.action, {
                 method: 'POST',
                 body: new FormData(form),
@@ -782,25 +814,22 @@
                 }
             }).then(response => {
                 if (response.ok) {
-                    document.getElementById('contactSuccessMessage').style.display = 'block';
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
                     form.reset();
-                    form.style.display = 'none';
+                    document.getElementById('submissionDate').value = new Date().toISOString().split('T')[0];
                 } else {
-                    document.getElementById('contactErrorMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('successMessage').style.display = 'none';
                 }
             }).catch(error => {
-                document.getElementById('contactErrorMessage').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
             }).finally(() => {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             });
         });
-
-        // Check for success parameter in URL
-        if (window.location.search.includes('contact=success')) {
-            document.getElementById('contactSuccessMessage').style.display = 'block';
-            document.getElementById('contactForm').style.display = 'none';
-        }
     </script>
 </body>
 </html>
