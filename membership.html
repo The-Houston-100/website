@@ -7,7 +7,371 @@
     <meta name="description" content="Join The Houston 100 Investment Group as a founding member. Exclusive opportunities in strategic real estate investment with professional management, community impact, and principled leadership.">
     <meta name="keywords" content="founding members, Houston 100 membership, real estate investment group, strategic investing, exclusive opportunities">
     
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Houston 100 Brand Colors & Reset */
+        :root {
+            --houston-black: #000000;
+            --houston-white: #ffffff;
+            --houston-gray: #747474;
+            --houston-light-gray: #f5f5f5;
+            --radius-sm: 6px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--houston-white);
+            background-color: var(--houston-black);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: var(--houston-black);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--houston-gray);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--houston-white);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--houston-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--houston-gray);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--houston-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000000 0%, #747474 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--houston-white);
+        }
+        
+        .badge-primary {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--houston-gray);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--houston-white);
+            color: var(--houston-black);
+        }
+        
+        .btn-primary:hover {
+            background: var(--houston-gray);
+            color: var(--houston-white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--houston-white);
+            border: 2px solid var(--houston-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--houston-white);
+            color: var(--houston-black);
+            transform: translateY(-2px);
+        }
+        
+        .btn-lg {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Sections */
+        .bg-dark {
+            background: #1a1a1a;
+            padding: 80px 0;
+        }
+        
+        .bg-black {
+            background: var(--houston-black);
+            padding: 80px 0;
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, #000000 0%, #747474 100%);
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--houston-white);
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--houston-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Grid System */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .grid-auto {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .gap-lg {
+            gap: 2rem;
+        }
+        
+        .gap-xl {
+            gap: 3rem;
+        }
+        
+        /* Cards */
+        .card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .card h3 {
+            color: var(--houston-white);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+        
+        .card h4 {
+            color: var(--houston-white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .card p {
+            color: var(--houston-gray);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .card li {
+            color: var(--houston-gray);
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        /* Text Utilities */
+        .text-gray {
+            color: var(--houston-gray);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-lg {
+            font-size: 1.3rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--houston-black);
+            padding: 3rem 0;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+        
+        .footer p {
+            color: var(--houston-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--houston-gray);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--houston-white);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .grid-2,
+            .grid-auto {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -17,10 +381,12 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="investment-approach.html">Investment Approach</a></li>
+                <li><a href="mission.html">Mission</a></li>
                 <li><a href="membership.html" class="active">Membership</a></li>
                 <li><a href="dhap.html">DHAP</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
             <button class="mobile-menu-toggle">☰</button>
         </div>
@@ -34,7 +400,7 @@
             <p>Discover exclusive founding member opportunities with The Houston 100 Investment Group. Join a community of like-minded investors committed to strategic real estate investment with principled leadership and meaningful impact.</p>
             <div class="hero-buttons">
                 <a href="#benefits" class="btn btn-primary">Explore Benefits</a>
-                <a href="#consultation" class="btn btn-secondary">Schedule Consultation</a>
+                <a href="#apply-now" class="btn btn-secondary">Apply Now</a>
             </div>
         </div>
     </section>
@@ -50,7 +416,7 @@
             <div class="grid grid-auto gap-lg">
                 <div class="card">
                     <h3>Investment Opportunities</h3>
-                    <ul style="list-style: none; padding: 0;">
+                    <ul>
                         <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
                             <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">✓</span>
                             Priority access to strategic real estate investments
@@ -72,7 +438,7 @@
                 
                 <div class="card">
                     <h3>Member Portal & Reporting</h3>
-                    <ul style="list-style: none; padding: 0;">
+                    <ul>
                         <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
                             <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">✓</span>
                             Comprehensive member dashboard
@@ -94,7 +460,7 @@
                 
                 <div class="card">
                     <h3>Community & Education</h3>
-                    <ul style="list-style: none; padding: 0;">
+                    <ul>
                         <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
                             <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">✓</span>
                             Quarterly Growth & Vision sessions
@@ -116,7 +482,7 @@
                 
                 <div class="card">
                     <h3>Governance & Voice</h3>
-                    <ul style="list-style: none; padding: 0;">
+                    <ul>
                         <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
                             <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">✓</span>
                             Voting rights on key decisions
@@ -153,11 +519,9 @@
                     <div style="margin-bottom: 2rem;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding: 1rem; background: var(--houston-black); border-radius: var(--radius-sm);">
                             <span>Real Estate Development</span>
-                            <span class="text-gray">60-70%</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; padding: 1rem; background: var(--houston-black); border-radius: var(--radius-sm);">
                             <span>Market Securities</span>
-                            <span class="text-gray">30-40%</span>
                         </div>
                     </div>
                     <p class="text-gray">Our diversified approach balances real estate development opportunities with strategic market securities allocation, creating a robust portfolio designed for long-term growth.</p>
@@ -165,7 +529,7 @@
                 
                 <div class="card">
                     <h3>Investment Philosophy</h3>
-                    <ul style="list-style: none; padding: 0;">
+                    <ul>
                         <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
                             <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">→</span>
                             Generational wealth building focus
@@ -204,7 +568,7 @@
                 <div class="card">
                     <h3>Investment Approach Alignment</h3>
                     <p class="text-gray" style="margin-bottom: 1.5rem;">You believe in building generational wealth through strategic real estate investment with a long-term perspective.</p>
-                    <ul style="list-style: none; padding: 0;">
+                    <ul>
                         <li style="margin-bottom: 0.5rem;">• Focus on sustainable growth over quick returns</li>
                         <li style="margin-bottom: 0.5rem;">• Value thorough due diligence and research</li>
                         <li style="margin-bottom: 0.5rem;">• Appreciate professional management</li>
@@ -215,7 +579,7 @@
                 <div class="card">
                     <h3>Community Values</h3>
                     <p class="text-gray" style="margin-bottom: 1.5rem;">You're committed to investments that create positive community impact alongside financial returns.</p>
-                    <ul style="list-style: none; padding: 0;">
+                    <ul>
                         <li style="margin-bottom: 0.5rem;">• Integrity in all business dealings</li>
                         <li style="margin-bottom: 0.5rem;">• Transparency and accountability</li>
                         <li style="margin-bottom: 0.5rem;">• Community-first mindset</li>
@@ -226,7 +590,7 @@
                 <div class="card">
                     <h3>Active Participation</h3>
                     <p class="text-gray" style="margin-bottom: 1.5rem;">You want to be part of a community of investors and contribute to our collective success.</p>
-                    <ul style="list-style: none; padding: 0;">
+                    <ul>
                         <li style="margin-bottom: 0.5rem;">• Participate in quarterly sessions</li>
                         <li style="margin-bottom: 0.5rem;">• Engage with member community</li>
                         <li style="margin-bottom: 0.5rem;">• Provide input on strategic decisions</li>
@@ -237,55 +601,72 @@
         </div>
     </section>
 
-    <!-- Next Steps -->
-    <section class="bg-dark" id="consultation">
+    <!-- Apply Now Section -->
+    <section class="bg-dark" id="apply-now">
         <div class="container">
             <div class="section-header">
-                <h2>Ready to Learn More?</h2>
-                <p>The next step is a personal consultation with our leadership team to discuss your investment goals and how The Houston 100 can help you achieve them.</p>
+                <h2>Ready to Apply?</h2>
+                <p>Complete your membership application and take the next step toward joining The Houston 100 Investment Group community.</p>
             </div>
             
-            <div class="grid grid-auto gap-lg">
+            <div class="grid grid-2 gap-xl">
                 <div class="card">
-                    <h3>What to Expect</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">1</span>
-                            <strong>Initial Consultation</strong><br>
-                            <span class="text-gray">45-60 minute conversation about your investment goals and our approach</span>
+                    <h3>Membership Application</h3>
+                    <p class="text-gray" style="margin-bottom: 1.5rem;">Submit your comprehensive membership application to be considered for our founding member community. The application covers your background, investment experience, and goals.</p>
+                    <ul>
+                        <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">•</span>
+                            Complete member profile form
                         </li>
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">2</span>
-                            <strong>Detailed Discussion</strong><br>
-                            <span class="text-gray">Review of investment philosophy, member benefits, and participation requirements</span>
+                        <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">•</span>
+                            Investment experience assessment
                         </li>
-                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">3</span>
-                            <strong>Mutual Evaluation</strong><br>
-                            <span class="text-gray">Determine if The Houston 100 is the right fit for your investment strategy</span>
+                        <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">•</span>
+                            Community impact interests
+                        </li>
+                        <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">•</span>
+                            Skills and contribution areas
                         </li>
                     </ul>
                 </div>
                 
                 <div class="card">
-                    <h3>During Our Conversation</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.75rem;">• We'll discuss your investment experience and goals</li>
-                        <li style="margin-bottom: 0.75rem;">• Review our investment approach and philosophy</li>
-                        <li style="margin-bottom: 0.75rem;">• Explain member benefits and participation levels</li>
-                        <li style="margin-bottom: 0.75rem;">• Address any questions about The Houston 100</li>
-                        <li style="margin-bottom: 0.75rem;">• Discuss next steps if there's mutual interest</li>
+                    <h3>Application Requirements</h3>
+                    <p class="text-gray" style="margin-bottom: 1.5rem;">Before applying, please ensure you meet our founding member requirements and are ready to commit to our investment community.</p>
+                    <ul>
+                        <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">•</span>
+                            Initial investment minimum: $5,000
+                        </li>
+                        <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">•</span>
+                            Monthly dues: $100 for operational costs
+                        </li>
+                        <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">•</span>
+                            Application fee: $50 (background checks)
+                        </li>
+                        <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">•</span>
+                            Biblical principles alignment
+                        </li>
+                        <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--houston-white); font-weight: bold;">•</span>
+                            Unanimous approval by current members
+                        </li>
                     </ul>
                 </div>
             </div>
             
             <div class="text-center" style="margin-top: 3rem;">
-                <h3>Schedule Your Consultation</h3>
-                <p class="text-gray" style="margin-bottom: 2rem;">Ready to explore founding member opportunities? Our team is available for consultations to discuss how The Houston 100 can help you achieve your investment goals.</p>
+                <h3>Start Your Application</h3>
+                <p class="text-gray" style="margin-bottom: 2rem;">Ready to join The Houston 100? Complete our comprehensive membership application form to begin the process.</p>
                 
                 <div class="hero-buttons">
-                    <a href="mailto:admin@thehouston100group.com?subject=Founding Member Consultation Request&body=I'm interested in learning more about founding member opportunities with The Houston 100 Investment Group. Please contact me to schedule a consultation.%0D%0A%0D%0AName: %0D%0APhone: %0D%0ABest time to contact: %0D%0A%0D%0AInvestment experience: %0D%0AInvestment goals: %0D%0A%0D%0AThank you!" class="btn btn-primary btn-lg">Email for Consultation</a>
-                    <a href="tel:+17135388220" class="btn btn-secondary btn-lg">Call (713) 538-8220</a>
+                    <a href="membership-application.html" class="btn btn-primary btn-lg">Complete Application Form</a>
                 </div>
             </div>
         </div>
@@ -320,17 +701,17 @@
                 <div>
                     <div style="margin-bottom: 2rem;">
                         <h4>What about investment minimums and fees?</h4>
-                        <p class="text-gray">Investment details including minimums and fee structures are discussed during the consultation process to ensure we can tailor our approach to your specific situation and goals.</p>
+                        <p class="text-gray">Investment details including minimums and fee structures are outlined in our membership application and discussed during the member onboarding process to ensure we can tailor our approach to your specific situation and goals.</p>
                     </div>
                     
                     <div style="margin-bottom: 2rem;">
-                        <h4>Can I bring my spouse or advisor to the consultation?</h4>
-                        <p class="text-gray">Absolutely! We encourage you to include anyone who is part of your investment decision-making process. We want everyone to be comfortable and informed.</p>
+                        <h4>Can I include my spouse or advisor in the process?</h4>
+                        <p class="text-gray">Absolutely! We encourage you to include anyone who is part of your investment decision-making process in your membership application and onboarding. We want everyone to be comfortable and informed.</p>
                     </div>
                     
                     <div style="margin-bottom: 2rem;">
-                        <h4>Is there any obligation from the consultation?</h4>
-                        <p class="text-gray">No obligation whatsoever. The consultation is a mutual evaluation to determine if The Houston 100 is a good fit for your investment goals and if you're a good fit for our community.</p>
+                        <h4>Is there any obligation from applying?</h4>
+                        <p class="text-gray">No obligation whatsoever. The application is a mutual evaluation to determine if The Houston 100 is a good fit for your investment goals and if you're a good fit for our community.</p>
                     </div>
                 </div>
             </div>
@@ -345,12 +726,8 @@
                 <p class="text-lg" style="margin-bottom: 2rem;">Take the first step toward strategic real estate investment with principled leadership and meaningful community impact.</p>
                 
                 <div class="hero-buttons">
-                    <a href="mailto:admin@thehouston100group.com?subject=Founding Member Interest&body=I'm interested in becoming a founding member of The Houston 100 Investment Group. Please contact me to schedule a consultation." class="btn btn-primary btn-lg">Start Your Journey</a>
-                    <a href="contact.html" class="btn btn-secondary btn-lg">Contact Information</a>
-                </div>
-                
-                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
-                    <p class="text-gray">Questions? Contact us at <a href="mailto:admin@thehouston100group.com">admin@thehouston100group.com</a> or <a href="tel:+17135388220">(713) 538-8220</a></p>
+                    <a href="membership-application.html" class="btn btn-primary btn-lg">Apply Now</a>
+                    <a href="index.html#contact" class="btn btn-secondary btn-lg">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -362,13 +739,15 @@
             <div class="footer-links">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
+                <a href="leadership.html">Leadership</a>
+                <a href="investment-approach.html">Investment Approach</a>
+                <a href="mission.html">Mission</a>
                 <a href="membership.html">Membership</a>
-                <a href="dhap.html">DHAP Program</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
+                <a href="dhap.html">DHAP</a>
+                <a href="index.html#contact">Contact</a>
             </div>
-            <p>&copy; 2025 Houston 100 Enterprises LLC. All rights reserved.</p>
-            <p>The Houston 100 Investment Group - Strategic Real Estate Investment</p>
+            <p>&copy; 2025 Houston 100 Investment Group LLC. All rights reserved.</p>
+            <p>Building Kingdom Wealth Through Strategic Investment</p>
         </div>
     </footer>
 </body>
