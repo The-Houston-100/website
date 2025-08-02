@@ -3,531 +3,1027 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keep it 100 Blog - The Houston 100 Investment Group | Real Estate Investment Insights</title>
-    <meta name="description" content="Keep it 100 blog from The Houston 100 Investment Group leadership team. Investment insights, market commentary, and strategic analysis from Houston's premier real estate investment professionals.">
-    <meta name="keywords" content="Keep it 100 blog, Houston real estate, investment insights, market commentary, real estate analysis, Houston 100">
-    
-    <link rel="stylesheet" href="style.css">
-    
+    <title>Houston 100 Investment Blog - Real Estate Market Insights & Kingdom-Focused Analysis</title>
+    <meta name="description" content="Houston real estate market insights, investment trends, and Kingdom-focused commercial real estate analysis from Houston 100 Investment Group.">
     <style>
-        /* Blog-specific styles inspired by Bisnow layout */
-        .blog-header {
-            background: linear-gradient(135deg, var(--houston-black) 0%, var(--houston-dark-gray) 100%);
-            padding: 60px 0 40px;
-            margin-top: 60px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .blog-nav {
-            background: var(--houston-dark-gray);
+
+        :root {
+            --houston-black: #000000;
+            --houston-gray: #747474;
+            --houston-light: #f8f9fa;
+            --houston-white: #ffffff;
+            --accent-blue: #2563eb;
+            --accent-green: #16a085;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-light: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--houston-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--houston-black);
+            color: white;
             padding: 1rem 0;
-            border-top: 1px solid var(--houston-border);
-            border-bottom: 1px solid var(--houston-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
-        .blog-categories {
+
+        .header-content {
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+            justify-content: space-between;
             align-items: center;
         }
-        
-        .category-filter {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--houston-border);
-            border-radius: var(--radius-sm);
-            color: var(--houston-gray);
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
             text-decoration: none;
-            font-size: var(--text-sm);
-            font-weight: 500;
-            transition: all var(--transition-base);
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
         }
-        
-        .category-filter:hover,
-        .category-filter.active {
-            background: var(--houston-white);
-            color: var(--houston-black);
-            border-color: var(--houston-white);
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #333333;
         }
-        
-        .blog-grid {
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--houston-black) 0%, var(--houston-gray) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+
+        .blog-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Search and Filter */
+        .search-filter {
+            background: var(--houston-light);
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .search-filter-content {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid var(--border-light);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            background: white;
+            border: 2px solid var(--border-light);
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: var(--houston-black);
+            color: white;
+            border-color: var(--houston-black);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+        }
+
+        .content-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: var(--space-xl);
-            margin-top: var(--space-xl);
+            gap: 40px;
         }
-        
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-lg);
-        }
-        
+
+        /* Featured Article */
         .featured-article {
-            background: var(--houston-dark-gray);
-            border-radius: var(--radius-md);
+            background: white;
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid var(--houston-border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
         }
-        
+
+        .featured-article:hover {
+            transform: translateY(-5px);
+        }
+
         .featured-image {
+            width: 100%;
             height: 300px;
             background: linear-gradient(45deg, var(--houston-black), var(--houston-gray));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--houston-white);
-            font-size: var(--text-4xl);
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-blue);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
             font-weight: bold;
         }
-        
+
         .featured-content {
-            padding: var(--space-lg);
+            padding: 30px;
         }
-        
-        .article-meta {
+
+        .featured-meta {
             display: flex;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-md);
-            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
         }
-        
-        .article-category {
-            background: var(--houston-gray);
+
+        .featured-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .featured-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
             color: var(--houston-black);
-            padding: 0.25rem 0.75rem;
-            border-radius: var(--radius-sm);
-            font-size: var(--text-xs);
+            line-height: 1.3;
+        }
+
+        .featured-excerpt {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: var(--accent-blue);
+            text-decoration: none;
             font-weight: 600;
-            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
         }
-        
-        .article-category.investment-insights { background: #4CAF50; color: white; }
-        .article-category.market-commentary { background: #2196F3; color: white; }
-        .article-category.leadership { background: #FF9800; color: white; }
-        .article-category.real-estate-trends { background: #9C27B0; color: white; }
-        .article-category.business-principles { background: #F44336; color: white; }
-        
-        .article-author {
-            color: var(--houston-gray);
-            font-size: var(--text-sm);
+
+        .read-more:hover {
+            color: var(--houston-black);
         }
-        
-        .article-date {
-            color: var(--houston-gray);
-            font-size: var(--text-sm);
-        }
-        
-        .article-grid {
+
+        /* Articles Grid */
+        .articles-grid {
             display: grid;
-            gap: var(--space-lg);
+            gap: 30px;
         }
-        
+
         .article-card {
-            background: var(--houston-dark-gray);
-            border-radius: var(--radius-md);
+            background: white;
+            border-radius: 8px;
             overflow: hidden;
-            border: 1px solid var(--houston-border);
-            transition: all var(--transition-base);
-            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
         }
-        
+
         .article-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
-        
+
         .article-image {
-            height: 200px;
-            background: linear-gradient(45deg, var(--houston-black), var(--houston-gray));
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, var(--houston-gray), var(--text-light));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--houston-white);
-            font-size: var(--text-2xl);
-            font-weight: bold;
+            color: white;
+            font-size: 0.9rem;
         }
-        
-        .article-body {
-            padding: var(--space-lg);
+
+        .article-content {
+            padding: 20px;
         }
-        
-        .article-title {
-            font-size: var(--text-xl);
+
+        .article-category {
+            background: var(--houston-light);
+            color: var(--houston-black);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: var(--space-sm);
-            line-height: 1.3;
+            margin-bottom: 10px;
+            display: inline-block;
         }
-        
+
+        .article-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--houston-black);
+            line-height: 1.4;
+        }
+
         .article-excerpt {
-            color: var(--houston-gray);
-            margin-bottom: var(--space-md);
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
             line-height: 1.5;
         }
-        
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Sidebar */
         .sidebar {
             display: flex;
             flex-direction: column;
-            gap: var(--space-lg);
+            gap: 30px;
         }
-        
-        .sidebar-section {
-            background: var(--houston-dark-gray);
-            border-radius: var(--radius-md);
-            padding: var(--space-lg);
-            border: 1px solid var(--houston-border);
+
+        .sidebar-widget {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-light);
         }
-        
-        .sidebar-title {
-            font-size: var(--text-lg);
-            font-weight: 600;
-            margin-bottom: var(--space-md);
-            padding-bottom: var(--space-sm);
-            border-bottom: 1px solid var(--houston-border);
+
+        .widget-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--houston-black);
+            border-bottom: 2px solid var(--houston-light);
+            padding-bottom: 10px;
         }
-        
-        .trending-item {
-            padding: var(--space-sm) 0;
-            border-bottom: 1px solid var(--houston-border);
-        }
-        
-        .trending-item:last-child {
-            border-bottom: none;
-        }
-        
-        .trending-title {
-            font-size: var(--text-sm);
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-            line-height: 1.3;
-        }
-        
-        .trending-meta {
-            font-size: var(--text-xs);
-            color: var(--houston-gray);
-        }
-        
-        .author-card {
+
+        /* Newsletter Widget */
+        .newsletter-form {
             display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm) 0;
-            border-bottom: 1px solid var(--houston-border);
+            flex-direction: column;
+            gap: 15px;
         }
-        
-        .author-card:last-child {
+
+        .newsletter-form input[type="email"] {
+            padding: 12px;
+            border: 2px solid var(--border-light);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .newsletter-btn {
+            background: var(--houston-black);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: #333333;
+        }
+
+        /* Popular Articles */
+        .popular-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .popular-item {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .popular-item:last-child {
             border-bottom: none;
+            padding-bottom: 0;
         }
-        
-        .author-avatar-small {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-full);
-            background: var(--houston-gray);
+
+        .popular-number {
+            background: var(--houston-black);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .popular-content h4 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .popular-content a {
             color: var(--houston-black);
-            font-size: var(--text-sm);
+            text-decoration: none;
         }
-        
-        .author-info h4 {
-            font-size: var(--text-sm);
+
+        .popular-content a:hover {
+            color: var(--accent-blue);
+        }
+
+        .popular-date {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Market Data Widget */
+        .market-data {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .market-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .market-item:last-child {
+            border-bottom: none;
+        }
+
+        .market-label {
             font-weight: 600;
-            margin: 0;
+            color: var(--houston-black);
         }
-        
-        .author-info p {
-            font-size: var(--text-xs);
-            color: var(--houston-gray);
-            margin: 0;
+
+        .market-value {
+            font-weight: bold;
+            color: var(--accent-green);
         }
-        
-        .newsletter-signup {
+
+        .market-change {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .positive {
+            color: var(--accent-green);
+        }
+
+        .negative {
+            color: #dc3545;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .pagination a,
+        .pagination span {
+            padding: 8px 12px;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .pagination a:hover,
+        .pagination .active {
             background: var(--houston-black);
-            border: 1px solid var(--houston-border);
+            color: white;
+            border-color: var(--houston-black);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--houston-black);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
             text-align: center;
+            color: #ccc;
         }
-        
-        .newsletter-input {
-            width: 100%;
-            margin-bottom: var(--space-sm);
-        }
-        
+
+        /* Responsive Design */
         @media (max-width: 1024px) {
-            .blog-grid {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
             
             .sidebar {
-                order: -1;
+                grid-row: 1;
             }
         }
-        
+
         @media (max-width: 768px) {
-            .blog-categories {
-                justify-content: flex-start;
-                overflow-x: auto;
-                padding-bottom: var(--space-sm);
+            .hero h1 {
+                font-size: 2.2rem;
             }
             
-            .category-filter {
-                white-space: nowrap;
+            .blog-stats {
+                flex-direction: column;
+                gap: 20px;
             }
             
-            .featured-image,
-            .article-image {
-                height: 150px;
+            .search-filter-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-tabs {
+                justify-content: center;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .featured-content,
+            .article-content,
+            .sidebar-widget {
+                padding: 20px;
+            }
+            
+            .featured-title {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">The Houston 100</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="membership.html">Membership</a></li>
-                <li><a href="dhap.html">DHAP</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle">☰</button>
-        </div>
-    </nav>
-
-    <!-- Blog Header -->
-    <section class="blog-header">
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <h1>Keep it 100</h1>
-            <p class="text-lg">Investment insights, market commentary, and strategic analysis from The Houston 100 leadership team</p>
+            <div class="header-content">
+                <div class="logo">Houston 100 Investment Group</div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="dhap.html">DHAP</a></li>
+                        <li><a href="blog.html" class="active">Market Insights</a></li>
+                        <li><a href="get-in-touch.html">Get In Touch</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Blog Navigation -->
-    <section class="blog-nav">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <div class="blog-categories">
-                <span class="text-sm font-semibold">Categories:</span>
-                <a href="#" class="category-filter active">All Posts</a>
-                <a href="#" class="category-filter">Investment Insights</a>
-                <a href="#" class="category-filter">Market Commentary</a>
-                <a href="#" class="category-filter">Leadership</a>
-                <a href="#" class="category-filter">Real Estate Trends</a>
-                <a href="#" class="category-filter">Business Principles</a>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <img src="images/keeping-it-100-newsletter.png" alt="Keeping It 100 Newsletter" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);">
             </div>
         </div>
     </section>
 
-    <!-- Main Blog Content -->
-    <section class="bg-black" style="padding: var(--space-xl) 0;">
+    <!-- Search Only -->
+    <section class="search-filter">
         <div class="container">
-            <div class="blog-grid">
-                <!-- Main Content Area -->
-                <div class="main-content">
+            <div class="search-filter-content">
+                <div class="search-box">
+                    <input type="text" placeholder="Search articles, market data, investment insights...">
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Articles Section -->
+                <div class="articles-section">
                     <!-- Featured Article -->
                     <article class="featured-article">
-                        <div class="featured-image">H100</div>
+                        <div class="featured-image">
+                            <span class="featured-badge">Featured</span>
+                            <span>Houston Skyline & Development Projects</span>
+                        </div>
                         <div class="featured-content">
-                            <div class="article-meta">
-                                <span class="article-category investment-insights">Investment Insights</span>
-                                <span class="article-author">Effram Barrett, CEO</span>
-                                <span class="article-date">January 29, 2025</span>
+                            <div class="featured-meta">
+                                <span>🏢 Market Analysis</span>
                             </div>
-                            <h2>Strategic Real Estate Investment in Houston's Evolving Market</h2>
-                            <p class="article-excerpt">As we launch The Houston 100, I want to share our perspective on Houston's real estate market and why we believe strategic, principle-based investing will outperform traditional approaches in 2025 and beyond. The fundamentals driving Houston's growth remain strong, but the opportunities lie in the details.</p>
-                            <a href="#" class="btn btn-primary btn-sm">Read Full Article</a>
+                            <h2 class="featured-title">Houston Metro Rental Market Analysis: 7,117 New Listings Signal Investor Opportunity</h2>
+                            <p class="featured-excerpt">
+                                Houston's rental market reached record-breaking inventory levels in June 2025, with 7,117 new single-family listings (+12.7% YoY) and 4,590 successful leases (+5.2% YoY). Our comprehensive analysis reveals how Kingdom-focused investors can capitalize on this market shift while creating positive community impact through strategic rental property acquisition and ethical tenant relations.
+                            </p>
+                            <a href="#" class="read-more">Read Full Analysis →</a>
                         </div>
                     </article>
 
-                    <!-- Recent Articles Grid -->
-                    <div class="article-grid">
+                    <!-- Articles Grid -->
+                    <div class="articles-grid">
                         <article class="article-card">
-                            <div class="article-image">Q100</div>
-                            <div class="article-body">
-                                <div class="article-meta">
-                                    <span class="article-category market-commentary">Market Commentary</span>
-                                    <span class="article-author">Quintin Ward, COO</span>
-                                    <span class="article-date">January 27, 2025</span>
-                                </div>
-                                <h3 class="article-title">Risk Management in Real Estate: Lessons from 2024</h3>
-                                <p class="article-excerpt">The past year taught us valuable lessons about risk assessment in real estate investment. Here's how we're applying these insights to our 2025 strategy and what it means for Houston 100 members.</p>
+                            <div class="article-image">
+                                <span>Westside Houston Development</span>
                             </div>
-                        </article>
-
-                        <article class="article-card">
-                            <div class="article-image">W100</div>
-                            <div class="article-body">
+                            <div class="article-content">
+                                <span class="article-category">Market Analysis</span>
+                                <h3 class="article-title">Katy & Cypress Market Update: Single-Family Investment Surge in West Houston</h3>
+                                <p class="article-excerpt">West Houston suburbs see 23% increase in investor activity as families move toward master-planned communities. Our analysis of Katy, Cypress, and Tomball markets reveals key opportunities.</p>
                                 <div class="article-meta">
-                                    <span class="article-category real-estate-trends">Real Estate Trends</span>
-                                    <span class="article-author">William Brown, CTO</span>
-                                    <span class="article-date">January 25, 2025</span>
+                                    <span>January 22, 2025</span>
+                                    <span>7 min read</span>
                                 </div>
-                                <h3 class="article-title">Technology's Role in Modern Real Estate Investment</h3>
-                                <p class="article-excerpt">How data analytics, AI-driven insights, and digital platforms are revolutionizing real estate investment decision-making. A look at the tools driving our investment strategy.</p>
-                            </div>
-                        </article>
-
-                        <article class="article-card">
-                            <div class="article-image">E100</div>
-                            <div class="article-body">
-                                <div class="article-meta">
-                                    <span class="article-category leadership">Leadership</span>
-                                    <span class="article-author">Effram Barrett, CEO</span>
-                                    <span class="article-date">January 23, 2025</span>
-                                </div>
-                                <h3 class="article-title">Building Generational Wealth Through Principled Investing</h3>
-                                <p class="article-excerpt">Why our biblical approach to business doesn't compromise returns—it enhances them. Exploring the intersection of faith, business excellence, and long-term wealth creation.</p>
-                            </div>
-                        </article>
-
-                        <article class="article-card">
-                            <div class="article-image">H100</div>
-                            <div class="article-body">
-                                <div class="article-meta">
-                                    <span class="article-category business-principles">Business Principles</span>
-                                    <span class="article-author">Quintin Ward, COO</span>
-                                    <span class="article-date">January 21, 2025</span>
-                                </div>
-                                <h3 class="article-title">Operational Excellence: The Foundation of Trust</h3>
-                                <p class="article-excerpt">How systematic processes, transparent reporting, and unwavering accountability create the foundation for sustainable investment success and member confidence.</p>
-                            </div>
-                        </article>
-
-                        <article class="article-card">
-                            <div class="article-image">W100</div>
-                            <div class="article-body">
-                                <div class="article-meta">
-                                    <span class="article-category investment-insights">Investment Insights</span>
-                                    <span class="article-author">William Brown, CTO</span>
-                                    <span class="article-date">January 19, 2025</span>
-                                </div>
-                                <h3 class="article-title">Data-Driven Due Diligence: Beyond the Numbers</h3>
-                                <p class="article-excerpt">Leveraging technology and analytics to uncover investment opportunities others miss. How our data-driven approach identifies value in Houston's competitive market.</p>
-                            </div>
-                        </article>
-
-                        <article class="article-card">
-                            <div class="article-image">H100</div>
-                            <div class="article-body">
-                                <div class="article-meta">
-                                    <span class="article-category market-commentary">Market Commentary</span>
-                                    <span class="article-author">Effram Barrett, CEO</span>
-                                    <span class="article-date">January 17, 2025</span>
-                                </div>
-                                <h3 class="article-title">Houston's Infrastructure Investment: What It Means for Real Estate</h3>
-                                <p class="article-excerpt">Analyzing the impact of major infrastructure projects on Houston real estate values and identifying strategic opportunities for long-term appreciation.</p>
                             </div>
                         </article>
                     </div>
 
-                    <!-- Load More Button -->
-                    <div class="text-center" style="margin-top: var(--space-xl);">
-                        <button class="btn btn-secondary">Load More Articles</button>
+                    <!-- Coming Soon Notice -->
+                    <div style="text-align: center; padding: 40px; background: var(--houston-light); border-radius: 8px; margin-top: 30px;">
+                        <h3 style="margin-bottom: 15px; color: var(--houston-black);">More Content Coming Soon</h3>
+                        <p style="color: var(--text-light); margin-bottom: 20px;">We're building our library of Houston market insights and Kingdom-focused investment content.</p>
+                        <a href="get-in-touch.html" style="background: var(--houston-black); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600;">Suggest a Topic</a>
                     </div>
                 </div>
 
                 <!-- Sidebar -->
-                <div class="sidebar">
-                    <!-- Newsletter Signup -->
-                    <div class="sidebar-section newsletter-signup">
-                        <h3 class="sidebar-title">Stay Updated</h3>
-                        <p class="text-sm text-gray" style="margin-bottom: var(--space-md);">Get the latest insights from The Houston 100 leadership team delivered to your inbox.</p>
-                        <input type="email" class="newsletter-input form-input" placeholder="Enter your email">
-                        <button class="btn btn-primary btn-full">Subscribe to Keep it 100</button>
-                    </div>
-
-                    <!-- Our Authors -->
-                    <div class="sidebar-section">
-                        <h3 class="sidebar-title">Our Authors</h3>
-                        <div class="author-card">
-                            <div class="author-avatar-small">EB</div>
-                            <div class="author-info">
-                                <h4>Effram Barrett</h4>
-                                <p>CEO & Strategic Visionary</p>
-                            </div>
-                        </div>
-                        <div class="author-card">
-                            <div class="author-avatar-small">QW</div>
-                            <div class="author-info">
-                                <h4>Quintin Ward</h4>
-                                <p>COO & Operations Leader</p>
-                            </div>
-                        </div>
-                        <div class="author-card">
-                            <div class="author-avatar-small">WB</div>
-                            <div class="author-info">
-                                <h4>William Brown</h4>
-                                <p>CTO & Technology Strategist</p>
-                            </div>
+                <aside class="sidebar">
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Market Insights Newsletter</h3>
+                        <p style="margin-bottom: 20px; color: var(--text-light); font-size: 0.9rem;">Get monthly Houston market updates, investment opportunities, and Kingdom-focused real estate insights with video content delivered to your inbox.</p>
+                        
+                        <form action="https://formspree.io/f/xzzvazpz" method="POST" class="newsletter-form">
+                            <input type="hidden" name="_subject" value="Keeping It 100 Newsletter Subscription">
+                            <input type="hidden" name="newsletter_type" value="Market Insights Newsletter">
+                            <input type="hidden" name="subscription_date" id="newsletterDate">
+                            <input type="email" name="email" placeholder="Your email address" required>
+                            <button type="submit" class="newsletter-btn">Subscribe to Updates</button>
+                        </form>
+                        
+                        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-light); text-align: center;">
+                            <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 10px;">Watch our latest videos:</p>
+                            <a href="https://www.youtube.com/@thehouston100channels" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #FF0000; color: white; padding: 10px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background-color 0.3s ease;">
+                                🎥 Houston 100 YouTube
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Trending Articles -->
-                    <div class="sidebar-section">
-                        <h3 class="sidebar-title">Trending This Week</h3>
-                        <div class="trending-item">
-                            <h4 class="trending-title">Houston's Multi-Family Market Outlook for 2025</h4>
-                            <p class="trending-meta">Investment Insights • 2,847 views</p>
+                    <!-- Popular Articles -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Latest Articles</h3>
+                        <ul class="popular-list">
+                            <li class="popular-item">
+                                <div class="popular-number">1</div>
+                                <div class="popular-content">
+                                    <h4><a href="#">Houston Metro Rental Market Analysis: 7,117 New Listings</a></h4>
+                                    <div class="popular-date">January 28, 2025</div>
+                                </div>
+                            </li>
+                            <li class="popular-item">
+                                <div class="popular-number">2</div>
+                                <div class="popular-content">
+                                    <h4><a href="#">Katy & Cypress Market Update: West Houston Investment Surge</a></h4>
+                                    <div class="popular-date">January 22, 2025</div>
+                                </div>
+                            </li>
+                            <li class="popular-item" style="opacity: 0.5;">
+                                <div class="popular-number">3</div>
+                                <div class="popular-content">
+                                    <h4><a href="#">More market insights coming soon...</a></h4>
+                                    <div class="popular-date">Stay tuned</div>
+                                </div>
+                            </li>
+                            <li class="popular-item" style="opacity: 0.5;">
+                                <div class="popular-number">4</div>
+                                <div class="popular-content">
+                                    <h4><a href="#">Building our content library...</a></h4>
+                                    <div class="popular-date">Coming soon</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Market Data -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Live Market Data</h3>
+                        <div class="market-data" id="marketData">
+                            <div class="market-item">
+                                <div>
+                                    <div class="market-label">S&P 500</div>
+                                    <div class="market-change" id="sp500Change">Loading...</div>
+                                </div>
+                                <div class="market-value" id="sp500Price">Loading...</div>
+                            </div>
+                            <div class="market-item">
+                                <div>
+                                    <div class="market-label">Real Estate ETF (VNQ)</div>
+                                    <div class="market-change" id="vnqChange">Loading...</div>
+                                </div>
+                                <div class="market-value" id="vnqPrice">Loading...</div>
+                            </div>
+                            <div class="market-item">
+                                <div>
+                                    <div class="market-label">10-Year Treasury</div>
+                                    <div class="market-change" id="treasuryChange">Loading...</div>
+                                </div>
+                                <div class="market-value" id="treasuryRate">Loading...</div>
+                            </div>
+                            <div class="market-item">
+                                <div>
+                                    <div class="market-label">Mortgage REIT ETF</div>
+                                    <div class="market-change" id="mortgageChange">Loading...</div>
+                                </div>
+                                <div class="market-value" id="mortgagePrice">Loading...</div>
+                            </div>
+                            <div class="market-item">
+                                <div>
+                                    <div class="market-label">Houston Home Sales</div>
+                                    <div class="market-change positive">+5.2% YoY</div>
+                                </div>
+                                <div class="market-value">4,590</div>
+                            </div>
                         </div>
-                        <div class="trending-item">
-                            <h4 class="trending-title">DHAP Program: Creating Win-Win Investment Opportunities</h4>
-                            <p class="trending-meta">Business Principles • 1,923 views</p>
-                        </div>
-                        <div class="trending-item">
-                            <h4 class="trending-title">Interest Rate Impact on Houston Real Estate</h4>
-                            <p class="trending-meta">Market Commentary • 1,654 views</p>
-                        </div>
-                        <div class="trending-item">
-                            <h4 class="trending-title">Technology in Property Management</h4>
-                            <p class="trending-meta">Real Estate Trends • 1,432 views</p>
-                        </div>
-                        <div class="trending-item">
-                            <h4 class="trending-title">Building a Principled Investment Portfolio</h4>
-                            <p class="trending-meta">Leadership • 1,289 views</p>
+                        <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 10px; text-align: center;">
+                            Data provided by Finnhub.io • Updates every 15 minutes
                         </div>
                     </div>
 
                     <!-- Quick Links -->
-                    <div class="sidebar-section">
-                        <h3 class="sidebar-title">Quick Links</h3>
-                        <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
-                            <a href="membership.html" class="btn btn-outline btn-sm">Founding Member Info</a>
-                            <a href="dhap.html" class="btn btn-outline btn-sm">DHAP Program</a>
-                            <a href="contact.html" class="btn btn-outline btn-sm">Schedule Consultation</a>
-                            <a href="about.html" class="btn btn-outline btn-sm">Meet the Team</a>
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Quick Access</h3>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <a href="membership.html" style="background: var(--houston-light); padding: 10px; border-radius: 6px; text-decoration: none; color: var(--houston-black); font-weight: 600; text-align: center;">Join Houston 100</a>
+                            <a href="dhap.html" style="background: var(--accent-blue); padding: 10px; border-radius: 6px; text-decoration: none; color: white; font-weight: 600; text-align: center;">Learn About DHAP</a>
+                            <a href="get-in-touch.html" style="background: var(--houston-black); padding: 10px; border-radius: 6px; text-decoration: none; color: white; font-weight: 600; text-align: center;">Contact Our Team</a>
                         </div>
                     </div>
-
-                    <!-- Contact Info -->
-                    <div class="sidebar-section">
-                        <h3 class="sidebar-title">Contact Us</h3>
-                        <p class="text-sm text-gray" style="margin-bottom: var(--space-sm);">Have questions about our insights or want to discuss investment opportunities?</p>
-                        <p class="text-sm"><strong>Email:</strong> <a href="mailto:admin@thehouston100group.com">admin@thehouston100group.com</a></p>
-                        <p class="text-sm"><strong>Phone:</strong> <a href="tel:+17135388220">(713) 538-8220</a></p>
-                    </div>
-                </div>
+                </aside>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Houston 100 Investment Group</h3>
+                    <p>Kingdom-focused real estate investment creating sustainable wealth and positive community impact.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Market Insights</h3>
+                    <p>Monthly market analysis, investment trends, and Kingdom-focused real estate insights for Houston area investors.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>Email: insights@thehouston100group.com<br>
+                    Houston, Texas</p>
+                </div>
+            </div>
+            
             <div class="footer-links">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
+                <a href="leadership.html">Leadership</a>
                 <a href="membership.html">Membership</a>
-                <a href="dhap.html">DHAP Program</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
+                <a href="dhap.html">DHAP</a>
+                <a href="get-in-touch.html">Get In Touch</a>
             </div>
-            <p>&copy; 2025 Houston 100 Enterprises LLC. All rights reserved.</p>
-            <p>The Houston 100 Investment Group - Strategic Real Estate Investment</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Houston 100 Investment Group LLC. All rights reserved. | 
+                <a href="terms-conditions.html">Terms & Conditions</a> | 
+                <a href="privacy-policy.html">Privacy Policy</a></p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Finnhub.io API Integration
+        const FINNHUB_API_KEY = 'd21urphr01qktaq75engd21urphr01qktaq75eo0';
+        const FINNHUB_BASE_URL = 'https://finnhub.io/api/v1';
+
+        // Market symbols relevant to real estate investors
+        const marketSymbols = {
+            sp500: 'SPY',           // S&P 500 ETF
+            vnq: 'VNQ',             // Real Estate ETF
+            treasury: '^TNX',        // 10-Year Treasury
+            mortgage: 'REM'          // Mortgage REIT ETF
+        };
+
+        // Fetch market data from Finnhub.io
+        async function fetchMarketData() {
+            try {
+                for (const [key, symbol] of Object.entries(marketSymbols)) {
+                    const response = await fetch(`${FINNHUB_BASE_URL}/quote?symbol=${symbol}&token=${FINNHUB_API_KEY}`);
+                    const data = await response.json();
+                    
+                    if (data && data.c) {
+                        updateMarketDisplay(key, data);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching market data:', error);
+                showFallbackData();
+            }
+        }
+
+        // Update market data display
+        function updateMarketDisplay(key, data) {
+            const price = data.c; // Current price
+            const change = data.d; // Change
+            const changePercent = data.dp; // Change percent
+
+            let formattedPrice, formattedChange;
+            
+            // Format based on symbol type
+            if (key === 'treasury') {
+                formattedPrice = `${price.toFixed(2)}%`;
+            } else {
+                formattedPrice = `${price.toFixed(2)}`;
+            }
+
+            formattedChange = `${changePercent >= 0 ? '+' : ''}${changePercent.toFixed(2)}%`;
+
+            // Update DOM elements
+            const priceElement = document.getElementById(`${key}Price`);
+            const changeElement = document.getElementById(`${key}Change`);
+            
+            if (priceElement) priceElement.textContent = formattedPrice;
+            if (changeElement) {
+                changeElement.textContent = formattedChange;
+                changeElement.className = `market-change ${changePercent >= 0 ? 'positive' : 'negative'}`;
+            }
+        }
+
+        // Fallback data if API fails
+        function showFallbackData() {
+            const fallbackData = {
+                sp500Price: '$585.42',
+                sp500Change: '+0.85%',
+                vnqPrice: '$89.15',
+                vnqChange: '+1.20%',
+                treasuryRate: '4.25%',
+                treasuryChange: '+0.08%',
+                mortgagePrice: '$15.32',
+                mortgageChange: '-0.45%'
+            };
+
+            Object.entries(fallbackData).forEach(([id, value]) => {
+                const element = document.getElementById(id);
+                if (element) element.textContent = value;
+            });
+
+            // Set change classes for fallback
+            document.getElementById('sp500Change').className = 'market-change positive';
+            document.getElementById('vnqChange').className = 'market-change positive';
+            document.getElementById('treasuryChange').className = 'market-change positive';
+            document.getElementById('mortgageChange').className = 'market-change negative';
+        }
+
+        // Initialize market data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchMarketData();
+            // Refresh every 15 minutes
+            setInterval(fetchMarketData, 15 * 60 * 1000);
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-box input');
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            // In a real implementation, this would filter articles
+            console.log('Searching for:', query);
+        });
+
+        // Newsletter form with Formspree integration
+        document.getElementById('newsletterDate').value = new Date().toISOString().split('T')[0];
+        
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.newsletter-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Subscribing...';
+            submitBtn.disabled = true;
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert('🎉 Welcome to Keeping It 100! You\'ll receive our monthly newsletter with video insights and Houston market updates.');
+                    this.querySelector('input[type="email"]').value = '';
+                } else {
+                    alert('⚠️ There was an issue with your subscription. Please try again or contact us directly.');
+                }
+            }).catch(error => {
+                alert('⚠️ Network error. Please check your connection and try again.');
+            }).finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Smooth scrolling for pagination
+        const paginationLinks = document.querySelectorAll('.pagination a');
+        paginationLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
