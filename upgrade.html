@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Property Reports - Houston 100 Intelligence Engine</title>
+    <meta name="description" content="Purchase professional AI-powered property analysis reports with Kingdom-focused insights. Pay-per-report pricing with bulk discounts. No subscriptions required.">
+    
+    <style>
+        /* Houston 100 Brand Colors & Reset */
+        :root {
+            --houston-black: #000000;
+            --houston-white: #ffffff;
+            --houston-gray: #747474;
+            --houston-light-gray: #f5f5f5;
+            --houston-accent: #4299e1;
+            --houston-success: #22c55e;
+            --houston-warning: #f59e0b;
+            --houston-gold: #fbbf24;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--houston-white);
+            background-color: var(--houston-black);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: var(--houston-black);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--houston-white);
+            text-decoration: none;
+        }
+        
+        .nav-status {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .reports-remaining {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--houston-warning);
+            font-weight: 600;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000000 0%, #747474 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+        }
+        
+        .upgrade-badge {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--houston-warning), var(--houston-gold));
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--houston-black);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--houston-gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+        
+        .value-delivered {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 3rem 0;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+        
+        .value-delivered h3 {
+            color: var(--houston-success);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .value-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .value-stat {
+            text-align: center;
+        }
+        
+        .value-stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--houston-success);
+            display: block;
+        }
+        
+        .value-stat-label {
+            font-size: 0.9rem;
+            color: var(--houston-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Membership Tiers */
+        .membership-tiers {
+            padding: 100px 0;
+            background: #1a1a1a;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--houston-white);
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--houston-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .tier-card {
+            background: rgba(255,255,255,0.05);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tier-card.featured {
+            border-color: var(--houston-gold);
+            background: rgba(251, 191, 36, 0.05);
+            transform: scale(1.05);
+        }
+        
+        .tier-card.featured::before {
+            content: '👑 MOST POPULAR';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--houston-gold);
+            color: var(--houston-black);
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .tier-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .tier-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .tier-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tier-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--houston-white);
+        }
+        
+        .tier-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--houston-accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tier-card.featured .tier-price {
+            color: var(--houston-gold);
+        }
+        
+        .tier-period {
+            color: var(--houston-gray);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .tier-description {
+            color: var(--houston-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .tier-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+        
+        .tier-features li {
+            padding: 0.75rem 0;
+            color: var(--houston-white);
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .tier-features li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            top: 0.75rem;
+        }
+        
+        .tier-features li.premium::before {
+            content: '👑';
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 1.25rem 2.5rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: var(--houston-accent);
+            color: var(--houston-white);
+            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: #3182ce;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(66, 153, 225, 0.4);
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, var(--houston-warning), var(--houston-gold));
+            color: var(--houston-black);
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+            font-weight: 700;
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--houston-white);
+            border: 2px solid var(--houston-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--houston-white);
+            color: var(--houston-black);
+            transform: translateY(-3px);
+        }
+        
+        /* What You Get Section */
+        .benefits {
+            padding: 100px 0;
+            background: var(--houston-black);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .benefit-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .benefit-card h4 {
+            color: var(--houston-white);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .benefit-card p {
+            color: var(--houston-gray);
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #000000 0%, #747474 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .final-cta h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--houston-white);
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            color: var(--houston-gray);
+            margin-bottom: 3rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Loading States */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .loading .btn {
+            background: var(--houston-gray) !important;
+        }
+        
+        /* Success/Error Messages */
+        .message {
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+        
+        .message.success {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--houston-success);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        
+        .message.error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .value-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .tiers-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .tier-card.featured {
+                transform: none;
+            }
+            
+            .tier-card.featured:hover {
+                transform: translateY(-10px);
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .tier-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">The Houston 100</a>
+            <div class="nav-status">
+                <div class="reports-remaining" id="reportsStatus">
+                    0 Free Reports Remaining
+                </div>
+                <span style="color: var(--houston-gray);">Welcome back, <span id="userName">Professional Investor</span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="upgrade-badge">Purchase Required</div>
+                <h1>Continue Your<br>Professional Investment Journey</h1>
+                <p>You've experienced the power of our AI-driven property analysis. Now unlock unlimited access to build generational wealth through professional real estate investing.</p>
+                
+                <div class="value-delivered">
+                    <h3>📊 Value You've Already Received</h3>
+                    <p>Your 3 complimentary property analysis reports provided professional-grade insights worth over $300 in market research.</p>
+                    
+                    <div class="value-stats">
+                        <div class="value-stat">
+                            <span class="value-stat-number">3</span>
+                            <span class="value-stat-label">PDF Reports Generated</span>
+                        </div>
+                        <div class="value-stat">
+                            <span class="value-stat-number">$300+</span>
+                            <span class="value-stat-label">Value Delivered</span>
+                        </div>
+                        <div class="value-stat">
+                            <span class="value-stat-number">AI</span>
+                            <span class="value-stat-label">Powered Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Tiers -->
+    <section class="membership-tiers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Report Package</h2>
+                <p>Professional AI-powered property analysis with Kingdom-focused insights. Pay only for what you need.</p>
+            </div>
+            
+            <div class="tiers-grid">
+                <!-- Single Report -->
+                <div class="tier-card">
+                    <div class="tier-icon">📊</div>
+                    <h3>Single Report</h3>
+                    <div class="tier-price">$35</div>
+                    <div class="tier-period">per report</div>
+                    <div class="tier-description">Perfect for testing our professional analysis or analyzing a single investment opportunity.</div>
+                    
+                    <ul class="tier-features">
+                        <li>Professional PDF property report</li>
+                        <li>Houston market intelligence</li>
+                        <li>Multi-source property analysis</li>
+                        <li>Investment recommendations</li>
+                        <li>Email delivery</li>
+                        <li>No expiration</li>
+                    </ul>
+                    
+                    <button class="btn btn-primary" onclick="purchaseReports('single', 1, 35)">
+                        📊 Buy Single Report - $35
+                    </button>
+                </div>
+                
+                <!-- 10 Pack -->
+                <div class="tier-card">
+                    <div class="tier-icon">📈</div>
+                    <h3>10-Report Pack</h3>
+                    <div class="tier-price">$300</div>
+                    <div class="tier-period">$30 per report (save $50)</div>
+                    <div class="tier-description">Great for active investors analyzing multiple properties or building a portfolio with professional insights.</div>
+                    
+                    <ul class="tier-features">
+                        <li>10 professional PDF reports</li>
+                        <li>Houston market intelligence</li>
+                        <li>Multi-source property analysis</li>
+                        <li>Investment recommendations</li>
+                        <li>Email delivery</li>
+                        <li>No expiration</li>
+                        <li class="premium">$50 savings (14% off)</li>
+                    </ul>
+                    
+                    <button class="btn btn-primary" onclick="purchaseReports('pack10', 10, 300)">
+                        📈 Buy 10 Reports - $300
+                    </button>
+                </div>
+                
+                <!-- 25 Pack - Featured -->
+                <div class="tier-card featured">
+                    <div class="tier-icon">👑</div>
+                    <h3>25-Report Pack</h3>
+                    <div class="tier-price">$650</div>
+                    <div class="tier-period">$26 per report (save $225)</div>
+                    <div class="tier-description">Perfect for serious investors or small investment groups focused on professional property acquisition analysis.</div>
+                    
+                    <ul class="tier-features">
+                        <li>25 professional PDF reports</li>
+                        <li>Houston market intelligence</li>
+                        <li>Multi-source property analysis</li>
+                        <li>Investment recommendations</li>
+                        <li>Email delivery</li>
+                        <li>No expiration</li>
+                        <li class="premium">$225 savings (26% off)</li>
+                        <li class="premium">Priority support</li>
+                    </ul>
+                    
+                    <button class="btn btn-gold" onclick="purchaseReports('pack25', 25, 650)">
+                        👑 Buy 25 Reports - $650
+                    </button>
+                </div>
+                
+                <!-- 50 Pack -->
+                <div class="tier-card">
+                    <div class="tier-icon">💎</div>
+                    <h3>50-Report Pack</h3>
+                    <div class="tier-price">$1,000</div>
+                    <div class="tier-period">$20 per report (save $750)</div>
+                    <div class="tier-description">Maximum value for investment firms, real estate professionals, or serious property investors.</div>
+                    
+                    <ul class="tier-features">
+                        <li>50 professional PDF reports</li>
+                        <li>Houston market intelligence</li>
+                        <li>Multi-source property analysis</li>
+                        <li>Investment recommendations</li>
+                        <li>Email delivery</li>
+                        <li>No expiration</li>
+                        <li class="premium">$750 savings (43% off)</li>
+                        <li class="premium">Priority support</li>
+                        <li class="premium">Direct consultation available</li>
+                    </ul>
+                    
+                    <button class="btn btn-secondary" onclick="purchaseReports('pack50', 50, 1000)">
+                        💎 Best Value - 50 Reports - $1,000
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Makes Our Reports Different</h2>
+                <p>Professional-grade property analysis that goes beyond traditional metrics to include comprehensive market intelligence and investment insights</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4>🤖 AI-Powered Intelligence</h4>
+                    <p>Advanced property analysis using Claude AI for comprehensive market evaluation and investment recommendations beyond traditional metrics.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>📊 Professional Analysis</h4>
+                    <p>Comprehensive property evaluation with market insights, comparable analysis, and investment viability assessment for informed decision-making.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>🏘️ Houston Market Expertise</h4>
+                    <p>Deep local knowledge of 40+ Houston neighborhoods with specialized insights into growth patterns and investment opportunities.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>📧 Professional Delivery</h4>
+                    <p>Comprehensive PDF reports delivered directly to your email. No expiration dates - your reports are yours to keep and reference forever.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>💰 Transparent Pricing</h4>
+                    <p>No hidden fees, no monthly subscriptions. Pay only for the reports you need with significant bulk discounts for larger packages.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>🎓 Educational Value</h4>
+                    <p>Each report includes educational insights about real estate investing, market analysis, and professional investment strategies to improve your knowledge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2>Continue Your Professional Investment Analysis</h2>
+                <p>Choose the perfect package for your property investment needs. Professional AI analysis with comprehensive market insights - no subscriptions required.</p>
+                
+                <div class="cta-buttons">
+                    <button class="btn btn-gold" onclick="purchaseReports('pack25', 25, 650)" style="width: auto; padding: 1.5rem 3rem;">
+                        👑 Most Popular - 25 Reports - $650
+                    </button>
+                    <button class="btn btn-primary" onclick="purchaseReports('pack10', 10, 300)" style="width: auto; padding: 1.5rem 3rem;">
+                        📈 Start with 10 Reports - $300
+                    </button>
+                </div>
+                
+                <p style="margin-top: 2rem; color: var(--houston-gray); font-size: 1rem;">
+                    Questions? <a href="get-in-touch.html" style="color: var(--houston-accent);">Contact our team</a> or 
+                    <a href="#" onclick="scheduleMeeting()" style="color: var(--houston-accent);">schedule a consultation</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success/Error Message -->
+    <div class="message" id="upgradeMessage"></div>
+
+    <script>
+        // Get user data from URL parameters or local storage
+        function getUserData() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return {
+                name: urlParams.get('name') || localStorage.getItem('userName') || 'Professional Investor',
+                email: urlParams.get('email') || localStorage.getItem('userEmail'),
+                reportsUsed: parseInt(urlParams.get('reportsUsed')) || 3,
+                userId: urlParams.get('userId') || localStorage.getItem('userId')
+            };
+        }
+        
+        // Initialize page with user data
+        function initializePage() {
+            const userData = getUserData();
+            
+            // Update user name in navigation
+            document.getElementById('userName').textContent = userData.name;
+            
+            // Update reports status
+            const reportsRemaining = 3 - userData.reportsUsed;
+            document.getElementById('reportsStatus').textContent = `${reportsRemaining} Free Reports Remaining`;
+            
+            // Update value stats with actual user data
+            const valueStats = document.querySelectorAll('.value-stat-number');
+            if (valueStats.length >= 3) {
+                valueStats[0].textContent = userData.reportsUsed;
+                valueStats[1].textContent = `$${userData.reportsUsed * 100}+`;
+            }
+        }
+        
+        // Handle report package purchase
+        async function purchaseReports(packageType, reportCount, price) {
+            const userData = getUserData();
+            
+            // Show loading state
+            const allButtons = document.querySelectorAll('.btn');
+            allButtons.forEach(btn => {
+                btn.classList.add('loading');
+                btn.textContent = 'Processing Payment...';
+            });
+            
+            const purchaseData = {
+                userId: userData.userId,
+                email: userData.email,
+                name: userData.name,
+                packageType: packageType,
+                reportCount: reportCount,
+                price: price,
+                pricePerReport: price / reportCount,
+                currentReportsUsed: userData.reportsUsed,
+                purchaseSource: 'intelligence_engine'
+            };
+            
+            try {
+                // In production, this would connect to your payment processing (Stripe/PayPal)
+                const response = await fetch('/api/reports/purchase', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                    },
+                    body: JSON.stringify(purchaseData)
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Show success message
+                    const messageEl = document.getElementById('upgradeMessage');
+                    messageEl.className = 'message success';
+                    messageEl.style.display = 'block';
+                    messageEl.innerHTML = `
+                        <strong>Purchase Successful!</strong><br>
+                        You now have ${reportCount} reports available in your account!<br>
+                        Redirecting to your dashboard...
+                    `;
+                    
+                    // Update user status
+                    localStorage.setItem('reportsAvailable', reportCount);
+                    localStorage.setItem('packageType', packageType);
+                    localStorage.setItem('lastPurchase', new Date().toISOString());
+                    
+                    // Redirect to dashboard with reports available
+                    setTimeout(() => {
+                        window.location.href = `/dashboard?purchased=true&reports=${reportCount}&package=${packageType}`;
+                    }, 3000);
+                    
+                } else {
+                    throw new Error('Purchase failed');
+                }
+                
+            } catch (error) {
+                // Show error message
+                const messageEl = document.getElementById('upgradeMessage');
+                messageEl.className = 'message error';
+                messageEl.style.display = 'block';
+                messageEl.innerHTML = `
+                    <strong>Purchase Failed</strong><br>
+                    Please try again or contact our support team for assistance.
+                `;
+                
+                // Reset button states
+                setTimeout(() => {
+                    location.reload();
+                }, 3000);
+            }
+        }
+        
+        // Schedule consultation meeting
+        function scheduleMeeting() {
+            // In production, this would integrate with Calendly or similar
+            window.open('https://calendly.com/houston100/consultation', '_blank');
+        }
+        
+        // Track purchase page visit for analytics
+        function trackPurchasePageVisit() {
+            const userData = getUserData();
+            
+            // Analytics tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'purchase_page_visit', {
+                    'user_id': userData.userId,
+                    'reports_used': userData.reportsUsed,
+                    'purchase_trigger': 'reports_limit_reached'
+                });
+            }
+        }
+        
+        // Initialize page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePage();
+            trackPurchasePageVisit();
+            
+            // Auto-scroll to packages after a moment
+            setTimeout(() => {
+                document.querySelector('.membership-tiers').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 2000);
+        });
+        
+        // Handle back navigation to dashboard
+        window.addEventListener('popstate', function(event) {
+            // If user tries to go back, redirect to limited dashboard
+            window.location.href = '/dashboard?purchase_required=true';
+        });
+    </script>
+</body>
+</html>
