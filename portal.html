@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houston 100 Intelligence Portal - Kingdom-Focused Real Estate Analysis</title>
+    <meta name="description" content="Access the Houston 100 Property Intelligence Engine - AI-powered real estate analysis with Kingdom-focused investment principles. Professional property evaluation for strategic investors.">
+    <meta name="keywords" content="Houston 100, property intelligence, real estate analysis, Kingdom investing, AI property analysis">
+    
+    <style>
+        /* Houston 100 Brand Colors & Reset */
+        :root {
+            --houston-black: #000000;
+            --houston-white: #ffffff;
+            --houston-gray: #747474;
+            --houston-light-gray: #f5f5f5;
+            --houston-accent: #4299e1;
+            --houston-success: #22c55e;
+            --houston-warning: #f59e0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--houston-white);
+            background-color: var(--houston-black);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: var(--houston-black);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--houston-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .logo:hover {
+            color: var(--houston-gray);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--houston-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--houston-gray);
+        }
+        
+        .nav-links a.active {
+            color: var(--houston-accent);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--houston-accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--houston-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000000 0%, #747474 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-left {
+            text-align: left;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: rgba(66, 153, 225, 0.1);
+            border: 1px solid rgba(66, 153, 225, 0.3);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--houston-accent);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--houston-gray);
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--houston-accent);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--houston-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero-right {
+            background: rgba(255,255,255,0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Portal Cards */
+        .portal-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .portal-card {
+            background: rgba(255,255,255,0.08);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(66, 153, 225, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .portal-card:hover::before {
+            left: 100%;
+        }
+        
+        .portal-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--houston-accent);
+            box-shadow: 0 10px 30px rgba(66, 153, 225, 0.2);
+        }
+        
+        .portal-card.selected {
+            border-color: var(--houston-accent);
+            background: rgba(66, 153, 225, 0.1);
+        }
+        
+        .portal-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--houston-accent);
+        }
+        
+        .portal-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--houston-white);
+        }
+        
+        .portal-card p {
+            color: var(--houston-gray);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .portal-card .price {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--houston-accent);
+        }
+        
+        /* Forms */
+        .auth-form {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--houston-white);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            color: var(--houston-white);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--houston-accent);
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+        }
+        
+        .form-group input::placeholder {
+            color: var(--houston-gray);
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 1.25rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: var(--houston-accent);
+            color: var(--houston-white);
+            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: #3182ce;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(66, 153, 225, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--houston-white);
+            border: 2px solid var(--houston-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--houston-white);
+            color: var(--houston-black);
+            transform: translateY(-2px);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: #1a1a1a;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .feature-card h3 {
+            color: var(--houston-white);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .feature-card p {
+            color: var(--houston-gray);
+            line-height: 1.6;
+        }
+        
+        /* Success/Error Messages */
+        .message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+        
+        .message.success {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--houston-success);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        
+        .message.error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        /* Loading States */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .loading .btn {
+            background: var(--houston-gray) !important;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            
+            .hero-left {
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .portal-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero-right {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">The Houston 100</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="dhap.html">DHAP</a></li>
+                <li><a href="portal.html" class="active">Intelligence Portal</a></li>
+                <li><a href="get-in-touch.html">Get In Touch</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="badge">AI-Powered Intelligence</div>
+                    <h1>Property Intelligence<br>Engine</h1>
+                    <p>Kingdom-focused real estate analysis powered by AI. Professional property evaluation, market intelligence, and investment recommendations aligned with Biblical principles.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">40+</span>
+                            <span class="stat-label">Houston Areas</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">AI</span>
+                            <span class="stat-label">Powered Analysis</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Access</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-right">
+                    <h3 style="color: var(--houston-white); margin-bottom: 2rem; text-align: center;">Choose Your Access Level</h3>
+                    
+                    <div class="portal-cards">
+                        <div class="portal-card" id="trialCard" onclick="selectPortal('trial')">
+                            <div class="portal-card-icon">🔍</div>
+                            <h3>Free Trial</h3>
+                            <p>14-day trial with 5 property analyses</p>
+                            <div class="price">Free</div>
+                        </div>
+                        
+                        <div class="portal-card" id="memberCard" onclick="selectPortal('member')">
+                            <div class="portal-card-icon">👑</div>
+                            <h3>Member Access</h3>
+                            <p>Full Intelligence Engine access</p>
+                            <div class="price">Members Only</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trial Signup Form -->
+                    <div class="auth-form" id="trialForm">
+                        <h4 style="color: var(--houston-white); margin-bottom: 1.5rem; text-align: center;">Start Your Free Trial</h4>
+                        
+                        <div class="message" id="trialMessage"></div>
+                        
+                        <form id="trialSignupForm">
+                            <div class="form-group">
+                                <label for="trialName">Full Name</label>
+                                <input type="text" id="trialName" name="name" required placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="trialEmail">Email Address</label>
+                                <input type="email" id="trialEmail" name="email" required placeholder="Enter your email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="trialPassword">Create Password</label>
+                                <input type="password" id="trialPassword" name="password" required placeholder="Create a secure password">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="trialPhone">Phone Number (Optional)</label>
+                                <input type="tel" id="trialPhone" name="phone" placeholder="Enter your phone number">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                🚀 Start Free Trial (14 Days)
+                            </button>
+                        </form>
+                        
+                        <p style="text-align: center; margin-top: 1rem; color: var(--houston-gray); font-size: 0.9rem;">
+                            No credit card required • 5 free property analyses
+                        </p>
+                    </div>
+                    
+                    <!-- Member Login Form -->
+                    <div class="auth-form" id="memberForm">
+                        <h4 style="color: var(--houston-white); margin-bottom: 1.5rem; text-align: center;">Member Login</h4>
+                        
+                        <div class="message" id="memberMessage"></div>
+                        
+                        <form id="memberLoginForm">
+                            <div class="form-group">
+                                <label for="memberEmail">Email Address</label>
+                                <input type="email" id="memberEmail" name="email" required placeholder="Enter your email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="memberPassword">Password</label>
+                                <input type="password" id="memberPassword" name="password" required placeholder="Enter your password">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                🏠 Access Intelligence Engine
+                            </button>
+                        </form>
+                        
+                        <div style="text-align: center; margin-top: 1.5rem;">
+                            <a href="#" style="color: var(--houston-accent); text-decoration: none;" onclick="showForgotPassword()">
+                                Forgot Password?
+                            </a>
+                        </div>
+                        
+                        <p style="text-align: center; margin-top: 1rem; color: var(--houston-gray); font-size: 0.9rem;">
+                            Not a member? <a href="membership.html" style="color: var(--houston-accent);">Learn about membership</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--houston-white);">Intelligence Engine Features</h2>
+                <p style="font-size: 1.2rem; color: var(--houston-gray); max-width: 600px; margin: 0 auto;">
+                    Professional real estate analysis powered by AI and guided by Kingdom principles
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🤖 AI-Powered Analysis</h3>
+                    <p>Claude AI integration for intelligent property evaluation and investment recommendations with professional accuracy.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>👑 Kingdom Metrics</h3>
+                    <p>Biblical stewardship, community impact, and affordability scoring to align investments with Kingdom principles.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>🏠 Multi-Source Data</h3>
+                    <p>Analyze properties from HAR, Zillow, Realtor, and Redfin for comprehensive market intelligence.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>📊 Houston Intelligence</h3>
+                    <p>Specialized analysis for 40+ Houston neighborhoods with local market insights and investment opportunities.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>📧 PDF Reports</h3>
+                    <p>Professional investment briefs delivered via email with comprehensive analysis and recommendations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>💼 Portfolio Tracking</h3>
+                    <p>Monitor your investments and track Kingdom impact performance over time with detailed analytics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--houston-black); padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+        <div class="container">
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <a href="index.html" style="color: var(--houston-gray); text-decoration: none; transition: color 0.3s ease;">Home</a>
+                <a href="about.html" style="color: var(--houston-gray); text-decoration: none; transition: color 0.3s ease;">About</a>
+                <a href="leadership.html" style="color: var(--houston-gray); text-decoration: none; transition: color 0.3s ease;">Leadership</a>
+                <a href="membership.html" style="color: var(--houston-gray); text-decoration: none; transition: color 0.3s ease;">Membership</a>
+                <a href="dhap.html" style="color: var(--houston-gray); text-decoration: none; transition: color 0.3s ease;">DHAP</a>
+                <a href="get-in-touch.html" style="color: var(--houston-gray); text-decoration: none; transition: color 0.3s ease;">Get In Touch</a>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <a href="terms-conditions.html" style="color: var(--houston-gray); text-decoration: none;">Terms & Conditions</a>
+                <a href="privacy-policy.html" style="color: var(--houston-gray); text-decoration: none;">Privacy Policy</a>
+            </div>
+            <p style="color: var(--houston-gray); margin-bottom: 1rem;">&copy; 2025 Houston 100 Investment Group LLC. All rights reserved.</p>
+            <p style="color: var(--houston-gray);">Building Kingdom Wealth Through Strategic Investment</p>
+        </div>
+    </footer>
+
+    <script>
+        let selectedPortal = null;
+        
+        // Portal Selection
+        function selectPortal(type) {
+            // Reset all cards
+            document.getElementById('trialCard').classList.remove('selected');
+            document.getElementById('memberCard').classList.remove('selected');
+            
+            // Hide all forms
+            document.getElementById('trialForm').classList.remove('active');
+            document.getElementById('memberForm').classList.remove('active');
+            
+            // Select new card and show form
+            if (type === 'trial') {
+                document.getElementById('trialCard').classList.add('selected');
+                document.getElementById('trialForm').classList.add('active');
+                selectedPortal = 'trial';
+            } else if (type === 'member') {
+                document.getElementById('memberCard').classList.add('selected');
+                document.getElementById('memberForm').classList.add('active');
+                selectedPortal = 'member';
+            }
+        }
+        
+        // Trial Signup Form Handler
+        document.getElementById('trialSignupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('.btn');
+            const messageEl = document.getElementById('trialMessage');
+            
+            // Show loading state
+            form.classList.add('loading');
+            submitBtn.textContent = 'Creating Your Trial Account...';
+            
+            // Collect form data
+            const formData = {
+                name: document.getElementById('trialName').value,
+                email: document.getElementById('trialEmail').value,
+                password: document.getElementById('trialPassword').value,
+                phone: document.getElementById('trialPhone').value,
+                accountType: 'trial'
+            };
+            
+            try {
+                // In production, this would connect to your Intelligence Engine API
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Show success message
+                    messageEl.className = 'message success';
+                    messageEl.style.display = 'block';
+                    messageEl.innerHTML = '<strong>Account Created Successfully!</strong><br>Redirecting to Intelligence Engine...';
+                    
+                    // Redirect to Intelligence Engine dashboard
+                    setTimeout(() => {
+                        window.location.href = '/dashboard?token=' + data.token;
+                    }, 2000);
+                    
+                } else {
+                    throw new Error('Registration failed');
+                }
+                
+            } catch (error) {
+                // Show error message
+                messageEl.className = 'message error';
+                messageEl.style.display = 'block';
+                messageEl.innerHTML = '<strong>Registration Failed</strong><br>Please try again or contact support.';
+            } finally {
+                // Reset loading state
+                form.classList.remove('loading');
+                submitBtn.textContent = '🚀 Start Free Trial (14 Days)';
+            }
+        });
+        
+        // Member Login Form Handler
+        document.getElementById('memberLoginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('.btn');
+            const messageEl = document.getElementById('memberMessage');
+            
+            // Show loading state
+            form.classList.add('loading');
+            submitBtn.textContent = 'Signing You In...';
+            
+            // Collect form data
+            const formData = {
+                email: document.getElementById('memberEmail').value,
+                password: document.getElementById('memberPassword').value
+            };
+            
+            try {
+                // In production, this would connect to your Intelligence Engine API
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Show success message
+                    messageEl.className = 'message success';
+                    messageEl.style.display = 'block';
+                    messageEl.innerHTML = '<strong>Login Successful!</strong><br>Redirecting to Intelligence Engine...';
+                    
+                    // Redirect to Intelligence Engine dashboard
+                    setTimeout(() => {
+                        window.location.href = '/dashboard?token=' + data.token;
+                    }, 1500);
+                    
+                } else {
+                    throw new Error('Login failed');
+                }
+                
+            } catch (error) {
+                // Show error message
+                messageEl.className = 'message error';
+                messageEl.style.display = 'block';
+                messageEl.innerHTML = '<strong>Login Failed</strong><br>Please check your credentials and try again.';
+            } finally {
+                // Reset loading state
+                form.classList.remove('loading');
+                submitBtn.textContent = '🏠 Access Intelligence Engine';
+            }
+        });
+        
+        // Forgot Password Handler
+        function showForgotPassword() {
+            const email = document.getElementById('memberEmail').value;
+            if (email) {
+                alert(`Password reset instructions will be sent to: ${email}`);
+                // In production, this would trigger password reset flow
+            } else {
+                alert('Please enter your email address first.');
+            }
+        }
+        
+        // Auto-select trial on page load for better UX
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                selectPortal('trial');
+            }, 1000);
+        });
+        
+        // Mobile menu toggle (from your existing website)
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
